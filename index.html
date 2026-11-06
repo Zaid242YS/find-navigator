@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Islamic Business Funding Navigator | Creed-to-Commerce™</title>
+<meta name="description" content="Compare Murabaha, Ijarah, Musharakah and Mudarabah for your business: indicative costs, risk-sharing, operational steps and a sustainability pathway. A Creed-to-Commerce™ tool by The Balanced Middle Path Academy, LLC.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#0f3d2e; --green-2:#1b5e43; --green-3:#e4efe8;
+  --gold:#b8892b; --gold-2:#f3e6c4; --brown:#6b4423; --brown-2:#efe3d6;
+  --ink:#1d2622; --muted:#5d6a63; --line:#d9d2c3; --paper:#fbf8f0; --card:#ffffff;
+  --fin:#7a4a1c; --biz:#0f3d2e; --shared:#a07414; --bad:#9b2c2c; --ok:#1f7a4d; --warn:#b7791f;
+  --radius:14px; --shadow:0 1px 2px rgba(15,61,46,.06),0 6px 18px rgba(15,61,46,.07);
+  --serif:'Amiri','Times New Roman',serif; --sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--serif);color:var(--green);line-height:1.2;margin:0 0 .5rem}
+h1{font-size:2rem} h2{font-size:1.6rem} h3{font-size:1.25rem} h4{font-size:1.05rem}
+p{margin:0 0 .75rem}
+a{color:var(--green-2)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+
+/* top bar */
+.topbar{background:linear-gradient(135deg,var(--green) 0%,#124a37 70%,#2a5a3f 100%);color:#fff;border-bottom:4px solid var(--gold)}
+.brandrow{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:14px 0}
+.brand{display:flex;flex-direction:column}
+.brand .bsm{font-family:var(--serif);font-size:1.7rem;direction:rtl;color:var(--gold-2);line-height:1.3}
+.brand .t{font-family:var(--serif);font-size:1.5rem;font-weight:700;letter-spacing:.2px}
+.brand .s{font-size:.8rem;color:#cfe2d8;letter-spacing:.4px}
+.tm{font-size:.6em;vertical-align:super}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap}
+.btn{appearance:none;border:1px solid transparent;border-radius:10px;padding:9px 14px;font:600 .85rem var(--sans);cursor:pointer;display:inline-flex;gap:6px;align-items:center;transition:transform .08s,box-shadow .15s,background .15s;text-decoration:none}
+.btn:active{transform:translateY(1px)}
+.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,.tab:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.btn-gold{background:var(--gold);color:#fff}.btn-gold:hover{background:#a37820}
+.btn-light{background:#fff;color:var(--green);border-color:#fff}.btn-light:hover{background:var(--gold-2)}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}.btn-ghost:hover{background:rgba(255,255,255,.12)}
+.btn-danger{background:#fff;color:var(--bad);border-color:#f0c9c9}.btn-danger:hover{background:#fdeeee}
+.btn-green{background:var(--green);color:#fff}.btn-green:hover{background:var(--green-2)}
+.btn-outline{background:#fff;color:var(--green);border-color:var(--green)}.btn-outline:hover{background:var(--green-3)}
+.btn-sm{padding:6px 10px;font-size:.78rem}
+
+/* creed to commerce stepper */
+.stepper{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.tabs{display:flex;gap:4px;overflow-x:auto;padding:8px 0;scrollbar-width:thin}
+.tab{flex:1 0 auto;min-width:150px;background:transparent;border:1px solid transparent;border-radius:12px;padding:8px 12px;text-align:left;cursor:pointer;color:var(--muted);font-family:var(--sans)}
+.tab .n{font:700 .7rem var(--sans);letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
+.tab .l{display:block;font:700 1.05rem var(--serif);color:var(--green)}
+.tab .d{display:block;font-size:.72rem}
+.tab[aria-selected=true]{background:var(--green-3);border-color:var(--green-2)}
+.tab:hover{background:#f3f7f4}
+
+.banner{margin:14px 0 0;padding:10px 14px;border-radius:10px;font-size:.88rem;display:none;gap:8px;align-items:center;justify-content:space-between}
+.banner.show{display:flex}
+.banner.sample{background:var(--gold-2);color:#5a4311;border:1px solid #e3cf93}
+
+main{padding:18px 0 40px}
+.panel{display:none}.panel.active{display:block}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+.card.tint{background:var(--green-3);border-color:#bfd6c8}
+.card.gold{background:var(--gold-2);border-color:#e3cf93}
+.card h3{display:flex;gap:8px;align-items:center}
+.lead{font-size:1.02rem;color:#33423a;max-width:75ch}
+.eyebrow{font:700 .72rem var(--sans);letter-spacing:1.2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.hero{background:linear-gradient(135deg,#fff 0%,#f4efe0 100%);border:1px solid var(--line);border-radius:18px;padding:24px;margin-bottom:16px;position:relative;overflow:hidden}
+.hero .bsm{font-family:var(--serif);font-size:2rem;direction:rtl;text-align:center;color:var(--green);margin-bottom:6px}
+.hero:after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,var(--gold-2),transparent 70%);opacity:.7}
+.stages{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:14px}
+.stage{background:#fff;border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:10px;padding:10px;font-size:.82rem}
+.stage b{display:block;font-family:var(--serif);font-size:1.05rem;color:var(--green)}
+
+/* forms */
+.form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 16px}
+.f{display:flex;flex-direction:column;gap:4px}
+.f.full{grid-column:1/-1}
+label,.lbl{font:600 .8rem var(--sans);color:#33423a}
+.hint{font-size:.74rem;color:var(--muted)}
+input[type=text],input[type=number],select,textarea{width:100%;border:1px solid #cfc7b4;border-radius:9px;padding:9px 10px;font:inherit;background:#fff;color:var(--ink)}
+textarea{min-height:70px;resize:vertical}
+input:focus,select:focus,textarea:focus{border-color:var(--green-2)}
+.check{display:flex;gap:10px;align-items:flex-start;padding:10px;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer}
+.check input{margin-top:3px;width:18px;height:18px;accent-color:var(--green-2)}
+.check span b{display:block;font-size:.88rem}
+.check span small{color:var(--muted)}
+.check.on{background:var(--green-3);border-color:#9cc3ad}
+
+/* score & pills */
+.pill{display:inline-block;padding:2px 9px;border-radius:999px;font:700 .72rem var(--sans);letter-spacing:.3px}
+.pill.fin{background:#f0e1d2;color:var(--fin)}
+.pill.biz{background:#d9eadf;color:var(--biz)}
+.pill.shared{background:#f6e9c1;color:#7a5a0c}
+.pill.ok{background:#d9eadf;color:var(--ok)} .pill.warn{background:#f6e9c1;color:#7a5a0c} .pill.bad{background:#f6dcdc;color:var(--bad)}
+.gauge{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.ring{--p:0;width:130px;height:130px;border-radius:50%;background:conic-gradient(var(--gold) calc(var(--p)*1%),#e8e1cf 0);display:grid;place-items:center;flex:none}
+.ring>div{width:98px;height:98px;border-radius:50%;background:#fff;display:grid;place-items:center;text-align:center;line-height:1.1}
+.ring b{font:700 1.9rem var(--serif);color:var(--green)} .ring small{font-size:.65rem;color:var(--muted);display:block}
+.bar{display:grid;grid-template-columns:150px 1fr 48px;gap:10px;align-items:center;margin:6px 0;font-size:.82rem}
+.bar .track{height:10px;background:#ece6d6;border-radius:99px;overflow:hidden}
+.bar .fill{height:100%;background:linear-gradient(90deg,var(--green-2),var(--gold));border-radius:99px;transition:width .4s}
+.bar .v{text-align:right;font-weight:600}
+
+/* tables */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.84rem}
+th,td{padding:9px 11px;border-bottom:1px solid #eee7d6;text-align:left;vertical-align:top}
+th{background:var(--green);color:#fff;font:600 .78rem var(--sans);letter-spacing:.3px;position:sticky;top:0}
+tbody tr:nth-child(even){background:#fcfaf4}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.hl td{background:#eef6f1!important;font-weight:600}
+.mname{font:700 1rem var(--serif);color:var(--green)}
+.ar{font-family:var(--serif);direction:rtl;color:var(--gold);font-size:1.1rem}
+
+/* model cards & fit */
+.fitcard{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fff;display:flex;flex-direction:column;gap:6px;cursor:pointer;transition:border .15s,box-shadow .15s}
+.fitcard:hover{box-shadow:var(--shadow)}
+.fitcard.sel{border:2px solid var(--green-2);background:#f2f8f4}
+.fitcard .rank{font:700 .7rem var(--sans);letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
+.fitcard ul{margin:4px 0 0;padding-left:18px;font-size:.78rem;color:#38453e}
+.seg{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 14px}
+.seg button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 14px;font:600 .82rem var(--sans);cursor:pointer;color:var(--green)}
+.seg button[aria-pressed=true]{background:var(--green);color:#fff;border-color:var(--green)}
+ol.flow{list-style:none;margin:0;padding:0;counter-reset:s}
+ol.flow li{counter-increment:s;position:relative;padding:0 0 14px 44px}
+ol.flow li:before{content:counter(s);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;font:700 .85rem var(--sans);display:grid;place-items:center}
+ol.flow li:after{content:"";position:absolute;left:14px;top:32px;bottom:2px;width:2px;background:var(--gold-2)}
+ol.flow li:last-child:after{display:none}
+ol.flow li b{display:block;color:var(--green)}
+ul.clean{margin:0;padding-left:18px} ul.clean li{margin:3px 0}
+.kpi{padding:14px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.kpi .k{font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);font-weight:600}
+.kpi .v{font:700 1.55rem var(--serif);color:var(--green)}
+.kpi .n{font-size:.76rem;color:var(--muted)}
+.road{border-left:4px solid var(--gold);padding-left:14px}
+.task{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fff;margin:6px 0;font-size:.86rem}
+.task input{margin-top:3px;accent-color:var(--green-2);width:17px;height:17px}
+.task.done{opacity:.6;text-decoration:line-through}
+.disc{font-size:.76rem;color:var(--muted);border-top:1px dashed var(--line);margin-top:18px;padding-top:12px}
+.empty{padding:26px;text-align:center;color:var(--muted);border:2px dashed var(--line);border-radius:12px;background:#fff}
+footer{background:var(--green);color:#cfe2d8;border-top:4px solid var(--gold);padding:22px 0;font-size:.82rem}
+footer b{color:var(--gold-2);font-family:var(--serif);font-size:1.05rem}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--green);color:#fff;padding:10px 18px;border-radius:10px;opacity:0;pointer-events:none;transition:.25s;z-index:99;font-size:.88rem;box-shadow:var(--shadow)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+svg text{font-family:var(--sans)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.78rem;margin:6px 0}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+
+@media(max-width:900px){.g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.stages{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.g2,.g3,.g4,.form{grid-template-columns:1fr}.bar{grid-template-columns:110px 1fr 40px}.tab{min-width:130px}.hero{padding:16px}h1{font-size:1.6rem}}
+@media print{
+  .topbar .toolbar,.stepper,.btn,.banner,.seg,.toast{display:none!important}
+  body{background:#fff}.panel{display:block!important;page-break-after:always}
+  .card,.hero{box-shadow:none}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap brandrow">
+    <div class="brand">
+      <span class="bsm" lang="ar">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</span>
+      <span class="t">Islamic Business Funding Navigator</span>
+      <span class="s">Creed-to-Commerce<span class="tm">™</span> &nbsp;|&nbsp; The Balanced Middle Path Academy, LLC</span>
+    </div>
+    <div class="toolbar" role="toolbar" aria-label="Standard actions">
+      <button class="btn btn-gold" id="btnSample" type="button">Load Sample Data</button>
+      <button class="btn btn-danger" id="btnClear" type="button">Remove Sample Data</button>
+      <button class="btn btn-light" id="btnPdf" type="button">Download PDF Report</button>
+      <button class="btn btn-ghost" id="btnPrint" type="button">Print</button>
+    </div>
+  </div>
+</header>
+
+<nav class="stepper" aria-label="Creed-to-Commerce journey">
+  <div class="wrap">
+    <div class="tabs" role="tablist" id="tabs">
+      <button class="tab" role="tab" data-go="creed"><span class="n">Stage 1</span><span class="l">Creed</span><span class="d">Intention &amp; screen</span></button>
+      <button class="tab" role="tab" data-go="clarity"><span class="n">Stage 2</span><span class="l">Clarity</span><span class="d">Business status</span></button>
+      <button class="tab" role="tab" data-go="compare"><span class="n">Stage 3</span><span class="l">Compare</span><span class="d">Costs &amp; risk-sharing</span></button>
+      <button class="tab" role="tab" data-go="contract"><span class="n">Stage 4</span><span class="l">Contract</span><span class="d">Fit &amp; operations</span></button>
+      <button class="tab" role="tab" data-go="commerce"><span class="n">Stage 5</span><span class="l">Commerce</span><span class="d">Sustainability path</span></button>
+      <button class="tab" role="tab" data-go="report"><span class="n">Output</span><span class="l">Reports</span><span class="d">PDF documents</span></button>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <div class="banner sample" id="sampleBanner" role="status"><span><b>Sample data is loaded.</b> Figures below are illustrative for a fictional business. Remove them before entering a real client.</span><button class="btn btn-outline btn-sm" id="btnClear2" type="button">Remove Sample Data</button></div>
+
+  <!-- ============ CREED ============ -->
+  <section class="panel" id="p-creed" role="tabpanel" aria-label="Creed">
+    <div class="hero">
+      <div class="bsm" lang="ar">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+      <div class="eyebrow">Creed-to-Commerce™ funding journey</div>
+      <h1>Fund your business on a foundation you can stand behind</h1>
+      <p class="lead">Every Islamic financing structure is a <em>contract</em> with real obligations. This navigator helps SMEs, founders and investment consultants clarify where a business stands today, compare Murabaha, Ijarah, Musharakah and Mudarabah side by side, and choose a structure with confidence, because the cost, the risk-sharing and the operating steps are all spelled out.</p>
+      <div class="stages">
+        <div class="stage"><b>1. Creed</b>Intention, halal activity and ethical screen</div>
+        <div class="stage"><b>2. Clarity</b>Honest status: readiness, cash flow, demand</div>
+        <div class="stage"><b>3. Compare</b>Costs and who carries which risk</div>
+        <div class="stage"><b>4. Contract</b>Best-fit structure and operating steps</div>
+        <div class="stage"><b>5. Commerce</b>Sustainable pathway serving real customer needs</div>
+      </div>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3>Creed screen</h3>
+        <p class="hint">Confirm each statement honestly. A structure cannot make an impermissible activity permissible, so this comes first.</p>
+        <div class="grid" style="gap:10px" id="creedChecks"></div>
+        <div id="creedStatus" style="margin-top:12px"></div>
+      </div>
+      <div class="card">
+        <h3>Who is this for, and what is the purpose?</h3>
+        <div class="form" style="grid-template-columns:1fr">
+          <div class="f"><label for="meta.role">I am using this as</label>
+            <select id="meta.role" data-path="meta.role"><option value="sme">SME owner</option><option value="founder">Founder / start-up</option><option value="consultant">Investment / business consultant</option><option value="investor">Capital provider / investor</option></select></div>
+          <div class="f"><label for="meta.client">Business / client name</label><input type="text" id="meta.client" data-path="meta.client" placeholder="e.g. Barakah Bakery Co."></div>
+          <div class="f"><label for="meta.preparedBy">Prepared by</label><input type="text" id="meta.preparedBy" data-path="meta.preparedBy" placeholder="Your name or firm"></div>
+          <div class="f"><label for="meta.currency">Currency</label>
+            <select id="meta.currency" data-path="meta.currency"><option>USD</option><option>MYR</option><option>SAR</option><option>AED</option><option>EGP</option><option>GBP</option><option>EUR</option></select></div>
+          <div class="f"><label for="need.statement">Purpose statement: what good will this funding do, and for whom?</label>
+            <textarea id="need.statement" data-path="need.statement" placeholder="Name the customer need you serve and the benefit to your community, employees and partners."></textarea></div>
+        </div>
+      </div>
+    </div>
+    <div class="card gold" style="margin-top:16px">
+      <h3>The four principles behind every structure</h3>
+      <div class="grid g4">
+        <div><b>No riba</b><br><span class="hint">Return comes from trade, leasing or shared enterprise, never from lending money for a fixed surplus.</span></div>
+        <div><b>Real asset or real enterprise</b><br><span class="hint">Each structure is tied to a tangible asset, a service or a business venture.</span></div>
+        <div><b>Clarity (no excessive gharar)</b><br><span class="hint">Price, term, ownership and obligations are known and written before signing.</span></div>
+        <div><b>Fair risk</b><br><span class="hint">Whoever is entitled to profit carries a matching share of risk.</span></div>
+      </div>
+    </div>
+    <div style="margin-top:16px"><button class="btn btn-green" data-go="clarity" type="button">Continue to Clarity →</button></div>
+  </section>
+
+  <!-- ============ CLARITY ============ -->
+  <section class="panel" id="p-clarity" role="tabpanel" aria-label="Clarity">
+    <div class="eyebrow">Stage 2</div><h2>Clarity: where does the business stand today?</h2>
+    <p class="lead">Enter what you know. Blank fields are fine; the readiness score and the confidence level simply reflect how complete the picture is.</p>
+    <div class="grid g2">
+      <div class="card">
+        <h3>Business profile</h3>
+        <div class="form">
+          <div class="f"><label for="profile.sector">Sector</label><select id="profile.sector" data-path="profile.sector"><option value="">Select…</option><option>Food &amp; beverage</option><option>Retail &amp; trade</option><option>Manufacturing</option><option>Agriculture &amp; aquaculture</option><option>Logistics &amp; transport</option><option>Construction &amp; real estate</option><option>Professional services</option><option>Education &amp; training</option><option>Technology &amp; digital</option><option>Healthcare</option><option>Hospitality &amp; tourism</option></select></div>
+          <div class="f"><label for="profile.stage">Stage</label><select id="profile.stage" data-path="profile.stage"><option value="">Select…</option><option value="idea">Idea / pre-revenue</option><option value="startup">Start-up (under 2 years)</option><option value="growth">Growing (2–5 years)</option><option value="established">Established (5+ years)</option></select></div>
+          <div class="f"><label for="profile.years">Years trading</label><input type="number" min="0" step="0.5" id="profile.years" data-path="profile.years"></div>
+          <div class="f"><label for="profile.revenue">Annual revenue</label><input type="number" min="0" id="profile.revenue" data-path="profile.revenue"></div>
+          <div class="f"><label for="profile.margin">Net profit margin (%)</label><input type="number" step="0.5" id="profile.margin" data-path="profile.margin"></div>
+          <div class="f"><label for="profile.ocf">Monthly operating cash flow (before financing)</label><input type="number" id="profile.ocf" data-path="profile.ocf"></div>
+          <div class="f"><label for="profile.debt">Existing monthly debt / financing payments</label><input type="number" min="0" id="profile.debt" data-path="profile.debt"></div>
+          <div class="f"><label for="profile.reserves">Cash reserves</label><input type="number" min="0" id="profile.reserves" data-path="profile.reserves"></div>
+          <div class="f"><label for="profile.collateral">Collateral / security available</label><input type="number" min="0" id="profile.collateral" data-path="profile.collateral"></div>
+          <div class="f"><label for="profile.mgmt">Management experience in this field (years)</label><input type="number" min="0" id="profile.mgmt" data-path="profile.mgmt"></div>
+          <div class="f"><label for="profile.records">Quality of financial records</label><select id="profile.records" data-path="profile.records"><option value="">Select…</option><option value="1">1 – None / informal</option><option value="2">2 – Basic, irregular</option><option value="3">3 – Monthly bookkeeping</option><option value="4">4 – Monthly accounts + budget</option><option value="5">5 – Audited / reviewed statements</option></select></div>
+          <div class="f"><label for="profile.demand">Evidence of customer demand</label><select id="profile.demand" data-path="profile.demand"><option value="">Select…</option><option value="1">1 – Assumption only</option><option value="2">2 – Informal interest</option><option value="3">3 – Some paying customers</option><option value="4">4 – Steady sales, growing</option><option value="5">5 – Contracts / waiting list</option></select></div>
+          <div class="f"><label for="profile.repeat">Repeat-customer share (%)</label><input type="number" min="0" max="100" id="profile.repeat" data-path="profile.repeat"></div>
+          <div class="f full"><label for="profile.need">Core customer need you serve</label><textarea id="profile.need" data-path="profile.need" placeholder="e.g. Fresh halal bread delivered daily to 40 cafés and 300 households."></textarea></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Funding need</h3>
+        <div class="form">
+          <div class="f"><label for="need.amount">Total project cost</label><input type="number" min="0" id="need.amount" data-path="need.amount"></div>
+          <div class="f"><label for="need.own">Your own contribution</label><input type="number" min="0" id="need.own" data-path="need.own"><span class="hint">Amount to be financed = cost − own contribution</span></div>
+          <div class="f"><label for="need.tenor">Term (months)</label><input type="number" min="6" max="240" id="need.tenor" data-path="need.tenor"></div>
+          <div class="f"><label for="need.ret">Expected annual return on the project (%)</label><input type="number" step="0.5" id="need.ret" data-path="need.ret"><span class="hint">Blank = 12% is assumed</span></div>
+          <div class="f full"><label for="need.purpose">Main use of funds</label><select id="need.purpose" data-path="need.purpose"><option value="">Select…</option><option value="equipment">Equipment / machinery</option><option value="vehicles">Vehicles / fleet</option><option value="inventory">Inventory / raw materials (stock)</option><option value="property">Premises / property</option><option value="working">Working capital (operating costs)</option><option value="expansion">Expansion of an existing business</option><option value="project">Specific project / contract</option><option value="newventure">New venture</option></select></div>
+          <div class="f"><label for="need.assetId">Is there an identifiable asset to buy or lease?</label><select id="need.assetId" data-path="need.assetId"><option value="">Select…</option><option value="yes">Yes</option><option value="no">No</option></select></div>
+          <div class="f"><label for="need.investor">Is a capital partner already identified?</label><select id="need.investor" data-path="need.investor"><option value="">Select…</option><option value="yes">Yes</option><option value="no">No</option></select></div>
+          <div class="f"><label for="need.dilution">Willingness to share ownership / decisions</label><select id="need.dilution" data-path="need.dilution"><option value="">Select…</option><option value="1">1 – Keep full control</option><option value="2">2 – Very limited sharing</option><option value="3">3 – Moderate</option><option value="4">4 – Open to a partner</option><option value="5">5 – Welcome a hands-on partner</option></select></div>
+          <div class="f"><label for="need.fixedPref">Preference for fixed, predictable payments</label><select id="need.fixedPref" data-path="need.fixedPref"><option value="">Select…</option><option value="1">1 – Prefer payments that flex with profit</option><option value="2">2 – Lean flexible</option><option value="3">3 – Neutral</option><option value="4">4 – Lean fixed</option><option value="5">5 – Must be fixed and certain</option></select></div>
+          <div class="f"><label for="need.predict">How predictable are project profits?</label><select id="need.predict" data-path="need.predict"><option value="">Select…</option><option value="1">1 – Highly uncertain</option><option value="2">2 – Variable</option><option value="3">3 – Moderate</option><option value="4">4 – Fairly stable</option><option value="5">5 – Very stable / contracted</option></select></div>
+          <div class="f"><label for="need.riskApp">Risk appetite</label><select id="need.riskApp" data-path="need.riskApp"><option value="">Select…</option><option value="1">1 – Very cautious</option><option value="2">2 – Cautious</option><option value="3">3 – Balanced</option><option value="4">4 – Growth-minded</option><option value="5">5 – High</option></select></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid g2" style="margin-top:16px">
+      <div class="card tint" id="readyCard"></div>
+      <div class="card" id="readyDetail"></div>
+    </div>
+    <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-outline" data-go="creed" type="button">← Creed</button><button class="btn btn-green" data-go="compare" type="button">Compare structures →</button></div>
+  </section>
+
+  <!-- ============ COMPARE ============ -->
+  <section class="panel" id="p-compare" role="tabpanel" aria-label="Compare">
+    <div class="eyebrow">Stage 3</div><h2>Compare: indicative cost and risk-sharing</h2>
+    <p class="lead">The same financing amount, term and project return are run through each structure. Fixed-payment structures cost the same whether the project thrives or struggles. Partnership structures move with results, so the financier shares both the upside and the downside.</p>
+
+    <div id="costBlock"></div>
+
+    <div class="card" style="margin-top:16px">
+      <h3>Who carries which risk?</h3>
+      <div class="legend"><span><i style="background:#f0e1d2"></i>Financier</span><span><i style="background:#d9eadf"></i>Business</span><span><i style="background:#f6e9c1"></i>Shared</span></div>
+      <div class="tw"><table id="riskTable"></table></div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <h3>Planning assumptions <span class="hint" style="font-weight:400">(editable; replace with real quotes)</span></h3>
+      <p class="hint">Indicative planning ranges only: Murabaha profit rates are often quoted 5–11% p.a. flat; Ijarah rentals 6–10% p.a. on a declining basis; Musharakah/Mudarabah returns depend on actual profit, with the capital provider commonly taking about 25–50% of profit in Mudarabah. Actual pricing depends on jurisdiction, provider, benchmark rates, tenor and security.</p>
+      <div class="form" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+        <div class="f"><label for="assump.mRate">Murabaha markup (% p.a. flat)</label><input type="number" step="0.1" id="assump.mRate" data-path="assump.mRate"></div>
+        <div class="f"><label for="assump.iRate">Ijarah rental rate (% p.a. declining)</label><input type="number" step="0.1" id="assump.iRate" data-path="assump.iRate"></div>
+        <div class="f"><label for="assump.feePct">Arrangement fee (% of financing)</label><input type="number" step="0.1" id="assump.feePct" data-path="assump.feePct"></div>
+        <div class="f"><label for="assump.takafulPct">Takaful / insurance (% p.a.)</label><input type="number" step="0.1" id="assump.takafulPct" data-path="assump.takafulPct"></div>
+        <div class="f"><label for="assump.mudShare">Mudarabah: capital provider profit share (%)</label><input type="number" step="1" id="assump.mudShare" data-path="assump.mudShare"></div>
+        <div class="f"><label for="assump.downFactor">Downside case: profit as % of expected</label><input type="number" step="5" id="assump.downFactor" data-path="assump.downFactor"></div>
+        <div class="f"><label for="assump.stressRet">Stress case: project return (% p.a.)</label><input type="number" step="1" id="assump.stressRet" data-path="assump.stressRet"></div>
+        <div class="f" style="justify-content:flex-end"><button class="btn btn-outline btn-sm" id="btnResetAssump" type="button">Reset assumptions</button></div>
+      </div>
+    </div>
+    <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-outline" data-go="clarity" type="button">← Clarity</button><button class="btn btn-green" data-go="contract" type="button">See best fit →</button></div>
+  </section>
+
+  <!-- ============ CONTRACT ============ -->
+  <section class="panel" id="p-contract" role="tabpanel" aria-label="Contract">
+    <div class="eyebrow">Stage 4</div><h2>Contract: best-fit structure and how it actually works</h2>
+    <div id="fitBlock"></div>
+    <div class="seg" id="modelSeg" role="group" aria-label="Choose a structure to view"></div>
+    <div id="opsBlock"></div>
+    <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-outline" data-go="compare" type="button">← Compare</button><button class="btn btn-green" data-go="commerce" type="button">Plan for sustainability →</button></div>
+  </section>
+
+  <!-- ============ COMMERCE ============ -->
+  <section class="panel" id="p-commerce" role="tabpanel" aria-label="Commerce">
+    <div class="eyebrow">Stage 5</div><h2>Commerce: a pathway that serves customers and endures</h2>
+    <div id="commerceBlock"></div>
+    <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-outline" data-go="contract" type="button">← Contract</button><button class="btn btn-green" data-go="report" type="button">Create reports →</button></div>
+  </section>
+
+  <!-- ============ REPORT ============ -->
+  <section class="panel" id="p-report" role="tabpanel" aria-label="Reports">
+    <div class="eyebrow">Output</div><h2>PDF documents</h2>
+    <p class="lead">Branded, shareable documents built from your current inputs. Reports mark sample data clearly so illustrative figures are never mistaken for a real client.</p>
+    <div class="grid g3">
+      <div class="card"><h3>Funding Findings Report</h3><p class="hint">Full multi-page report: Creed screen, readiness, cost comparison, risk matrix, fit ranking, operating steps and sustainability roadmap.</p><button class="btn btn-green" id="pdfFull" type="button">Download Findings Report</button></div>
+      <div class="card"><h3>Structure Operations Brief</h3><p class="hint">Step-by-step operating guide, document list, Shariah conditions and red flags for one chosen structure: <b id="briefName">—</b></p><button class="btn btn-green" id="pdfBrief" type="button">Download Operations Brief</button></div>
+      <div class="card"><h3>One-page Client Snapshot</h3><p class="hint">A concise summary for a client, board or capital partner: status, the ask, the recommended path and the first three actions.</p><button class="btn btn-green" id="pdfSnap" type="button">Download Snapshot</button></div>
+    </div>
+    <div class="card" style="margin-top:16px"><h3>Data controls</h3>
+      <p class="hint">Entries are saved automatically in this browser only. Nothing is uploaded to a server.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-outline" id="btnExport" type="button">Export inputs (JSON)</button><label class="btn btn-outline" for="importFile" style="margin:0">Import inputs<input id="importFile" type="file" accept="application/json" hidden></label><button class="btn btn-danger" id="btnClear3" type="button" style="border-color:#e6b9b9">Remove Sample Data</button></div>
+    </div>
+    <div class="disc" id="disc1"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <b>Creed-to-Commerce™</b> &nbsp;·&nbsp; The Balanced Middle Path Academy, LLC (BMPA)<br>
+    Educational planning tool. It is not Shariah, legal, tax or investment advice. Have any contract reviewed by a qualified Shariah scholar or board and a licensed professional before signing.
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="vendor/jspdf.umd.min.js"></script>
+<script>
+/* =========================================================
+   Islamic Business Funding Navigator  |  Creed-to-Commerce™
+   Vanilla JS, no build step. State saved to localStorage.
+   ========================================================= */
+'use strict';
+const STORE='bmpa_ifn_v1';
+const DEF_ASSUMP={mRate:8,iRate:8.5,feePct:1,takafulPct:0.5,mudShare:35,downFactor:40,stressRet:-10};
+const CREED_ITEMS=[
+ ['halal','Core activity is halal','The products, services and customers of the business are permissible. Financing structure cannot fix an impermissible activity.'],
+ ['noRiba','No reliance on interest-based products','The funded project will not depend on interest-bearing loans, conventional insurance or similar prohibited dealings.'],
+ ['honest','Truthful accounts','Records, projections and disclosures given to a financier or partner are accurate and complete.'],
+ ['clear','Terms are clear before signing','Price, term, ownership and obligations will be written, understood and agreed before any money moves.'],
+ ['zakat','Zakat and charity are planned for','Zakat on eligible business assets and a charity route for late-payment charges are part of the plan.']
+];
+const MODEL_ORDER=['murabaha','ijarah','musharakah','mudarabah'];
+const MODELS={
+ murabaha:{name:'Murabaha',ar:'مرابحة',tag:'Cost-plus sale',family:'Fixed-payment, asset-backed',
+  essence:'The financier buys an identified asset or stock, then sells it to the business at disclosed cost plus a disclosed profit, payable in instalments. The price is fixed at signing.',
+  bestFor:['Equipment, machinery, vehicles','Inventory and raw materials','Businesses wanting certainty and full control'],
+  notFor:['Pure working capital with no asset (needs commodity arrangements many scholars restrict)','Start-ups with no cash-flow history to carry fixed payments'],
+  risk:{asset:['fin','Financier until the asset is sold to you; yours after'],perf:['biz','Business: payments are due regardless of results'],loss:['biz','Business: the debt remains even if the project fails'],pay:['biz','Fixed and certain; set at signing'],control:['biz','Business keeps full ownership and control'],maint:['biz','Business after delivery'],default:['biz','Business: late charges go to charity; security may be enforced']},
+  steps:[
+   ['Request and promise to purchase','The business identifies the asset and supplier and gives a written promise (wa\'d) to buy it from the financier once acquired.'],
+   ['Financier buys the asset','The financier purchases the asset in its own name, takes ownership and carries the risk until the sale. If an agent is used, the agent\'s role must be a separate, documented agency.'],
+   ['Sale to the business','Offer and acceptance at a disclosed cost and a disclosed profit mark-up. The total price is fixed and cannot be raised later.'],
+   ['Instalments and security','The business pays in agreed instalments. Collateral, guarantees or a promissory note may secure the debt.'],
+   ['Settlement and early payment','Late payment cannot increase the price; any penalty goes to charity. A rebate (ibra\') for early settlement is discretionary.']],
+  docs:['Master Murabaha Agreement','Promise to Purchase (wa\'d)','Supplier quotation and invoice','Agency agreement (only if the financier appoints the business as purchasing agent)','Delivery and acceptance receipt','Security documents / guarantees','Takaful certificate for the asset (if applicable)'],
+  conditions:['The asset exists, is halal and is owned by the financier before sale','Cost and profit mark-up are disclosed and known to both sides','The price cannot rise for late payment','No sale of a debt for more or less than its face value','Be cautious with cash-raising structures (tawarruq); scholars differ, so seek board approval'],
+  fin:['Buy and own the asset before selling','Disclose cost and profit honestly','Bear asset risk until the sale completes'],
+  biz:['Pay instalments on time','Maintain and insure the asset after delivery','Provide agreed security and information'],
+  flags:['Funds paid to the business before the asset is purchased and sold','Profit rate described as interest on a loan balance','Price that changes with delays','Supplier is the business itself without a genuine sale'],
+  accounting:'Financier records a receivable and defers the profit over the term. The business records the asset at cost and a deferred-price payable, with the profit recognised as financing cost over time.'},
+ ijarah:{name:'Ijarah',ar:'إجارة',tag:'Lease (with optional transfer)',family:'Fixed-rental, asset-backed',
+  essence:'The financier owns an asset and leases it to the business for known rentals. Ownership can pass at the end by a separate gift or sale (Ijarah Muntahia Bittamleek), or the asset is returned.',
+  bestFor:['Equipment, fleets, premises, medical or technology assets','Preserving cash with low upfront outlay','Assets that may become obsolete'],
+  notFor:['Consumable inventory (it is used up, so it cannot be leased)','Businesses with no suitable identifiable asset'],
+  risk:{asset:['fin','Financier as owner (major structural loss, ownership-related costs)'],perf:['biz','Business: rentals are due while the asset is usable'],loss:['biz','Business bears project losses; financier bears loss of the asset itself'],pay:['biz','Rentals fixed, or floating against a stated benchmark'],control:['biz','Business has use and control during the lease'],maint:['shared','Financier: major / ownership maintenance and insurance. Business: ordinary operating upkeep'],default:['biz','Business: rental arrears; financier may repossess the asset']},
+  steps:[
+   ['Promise to lease','The business states the asset and its need; the financier agrees to buy and lease it.'],
+   ['Financier acquires the asset','The financier purchases and owns the asset; ownership risks are with the lessor from this point.'],
+   ['Lease contract','Asset, usage, term and rentals are defined. Rental periods and any variable-rent benchmark are known at the start of each period.'],
+   ['Delivery and use','The asset is delivered. The business pays rentals and handles operating maintenance; the lessor handles major maintenance and insurance.'],
+   ['End of lease','Return, renew, or transfer ownership through a separate gift, nominal sale or gradual-sale promise (not a condition inside the same lease contract).']],
+  docs:['Ijarah (lease) Agreement','Promise to Lease','Asset delivery certificate','Separate Promise to Gift / Sell at end of term','Takaful certificate (lessor as beneficiary)','Maintenance responsibility schedule','Security documents (if any)'],
+  conditions:['Lessor owns and possesses the asset before leasing it','Usage benefit and rental are known and lawful','Rental stops or reduces if the asset is unusable through no fault of the lessee','Transfer of ownership is a separate undertaking, not tied into the lease','Late-payment penalties are not retained as income'],
+  fin:['Own the asset and bear ownership risk','Carry out major maintenance and insure the asset','Deliver an asset fit for the agreed use'],
+  biz:['Pay rentals as agreed','Use the asset only for the agreed purpose','Handle day-to-day operating upkeep and return it in good order'],
+  flags:['Lease that automatically transfers title inside the same contract','Lessee bearing all ownership risks and insurance','Rentals charged on a loan balance rather than the asset\'s use','Asset not actually owned before leasing'],
+  accounting:'Lessor carries the asset and recognises rental income over the term. The business expenses the rentals (or recognises a right-of-use asset under the applicable standard) and tracks end-of-term transfer.'},
+ musharakah:{name:'Musharakah',ar:'مشاركة',tag:'Equity partnership (Diminishing)',family:'Profit-and-loss sharing',
+  essence:'Financier and business both contribute capital to a venture. Profits follow a pre-agreed ratio; losses follow each party\'s capital share. In Diminishing Musharakah the business gradually buys out the financier\'s units.',
+  bestFor:['Expansion and joint projects with good records','Property and long-term assets','Businesses whose cash flow is uneven and want payments to flex'],
+  notFor:['Owners unwilling to disclose accounts or share decisions','Very early ventures without reliable reporting'],
+  risk:{asset:['shared','Shared in proportion to ownership units'],perf:['shared','Shared: profit by agreed ratio'],loss:['shared','Shared strictly in proportion to capital contributed'],pay:['shared','Flexible: unit buy-out plus profit share; no fixed return'],control:['shared','Shared as set out in the partnership deed (the managing partner may earn extra)'],maint:['shared','Shared by ownership share'],default:['shared','Governed by exit, buy-out and valuation clauses']},
+  steps:[
+   ['Due diligence and valuation','Both sides review accounts, assets and plans. In-kind contributions are valued at an agreed fair value.'],
+   ['Partnership deed','Capital contributions, profit-sharing ratio, management rights, reporting, deadlock and exit are written down. Profit is a ratio, never a guaranteed amount.'],
+   ['Capital in and venture set-up','Funds are paid into a dedicated account or special-purpose entity and used only for the venture.'],
+   ['Periodic profit sharing','Provisional profits are distributed from real, reported results; final settlement follows closing accounts.'],
+   ['Unit buy-out and exit','The business purchases the financier\'s units in instalments at an agreed or fair-value price until the financier is fully exited, or the venture is liquidated.']],
+  docs:['Musharakah / Joint Venture Agreement','Unit Purchase Undertaking and schedule','Valuation reports for in-kind capital','Management and reporting protocol','Board / shareholder resolutions','Dedicated account mandate','Dispute resolution and exit clauses'],
+  conditions:['Losses are shared strictly by capital ratio; profit by agreed ratio','No guaranteed profit amount and no guarantee of capital by the partner','Capital is known, available and used only for the venture','Buy-out units are priced at fair value or an agreed price set in advance','Management role and any extra pay are agreed at signing'],
+  fin:['Contribute the agreed capital','Accept loss in proportion to capital','Exercise agreed oversight and information rights'],
+  biz:['Manage the venture diligently','Report truthfully and on time','Honour the unit buy-out schedule and partnership terms'],
+  flags:['Fixed return promised to the capital provider','Losses allocated differently from capital shares','Hidden fees that behave like a guaranteed return','No right to audit and no exit mechanism'],
+  accounting:'Both parties account for their share of the venture. The financier carries its units as an investment that reduces as units are sold; profit is recognised when determined, not before.'},
+ mudarabah:{name:'Mudarabah',ar:'مضاربة',tag:'Trust-based profit partnership',family:'Profit-sharing, capital provider bears loss',
+  essence:'The capital provider (rabb-ul-mal) supplies the funds and the business (mudarib) supplies expertise and management. Profits are shared by an agreed percentage; financial loss falls on the capital provider unless the mudarib was negligent or breached the agreement.',
+  bestFor:['New ventures where skill is high and capital is scarce','Trading and service projects with short cycles','Working capital with a trusted, transparent track record'],
+  notFor:['Anyone who cannot find a capital provider willing to bear loss risk','Owners who cannot report openly or lack records','Straight purchases of equipment (use Murabaha or Ijarah)'],
+  risk:{asset:['fin','Financier (owns the capital)'],perf:['fin','Financier bears financial loss; business loses its time and effort'],loss:['fin','Financier, unless there is negligence or breach by the business'],pay:['fin','No fixed return for the financier; no fixed payment for the business'],control:['biz','Business manages; financier has oversight and information rights only'],maint:['biz','Business as manager (cost treatment agreed in advance)'],default:['shared','Mudarib liable only for misconduct, negligence or breach']},
+  steps:[
+   ['Proposal and business plan','The business presents its plan, purpose, risks and reporting approach. Restricted (specific project) or unrestricted scope is chosen.'],
+   ['Mudarabah agreement','Profit-sharing percentages, term, permitted expenses, reporting frequency, audit rights and negligence clauses are written down.'],
+   ['Capital hand-over','Capital is handed over in known, available form. The business cannot guarantee it.'],
+   ['Operation and reporting','The business manages the venture and reports regularly. The financier can inspect but does not run the business.'],
+   ['Profit and capital return','Profit is shared only after the capital is protected. At term-end capital is returned, reduced by any genuine loss, and the venture is liquidated or renewed.']],
+  docs:['Mudarabah Agreement','Business plan and use-of-funds schedule','Reporting pack and audit rights','Negligence / breach definitions','Capital transfer receipt','Liquidation and renewal terms','Conflict-of-interest declaration'],
+  conditions:['Capital is known and handed to the mudarib; no debts as capital','Profit is a stated percentage of actual profit, never a fixed sum','Mudarib does not guarantee capital or profit (a separate third-party guarantee is possible)','Financial loss is borne by the capital provider unless negligence or breach','Expense treatment and the mudarib\'s role are agreed in advance'],
+  fin:['Provide the full capital','Accept financial loss absent negligence','Respect the business\'s management role'],
+  biz:['Manage with skill and good faith','Keep accurate records and report on schedule','Account for capital and profit at term-end'],
+  flags:['Guaranteed profit or guaranteed capital return from the business','Profit stated as a fixed monetary amount','Financier interfering in day-to-day management','No clear definition of negligence or misconduct'],
+  accounting:'The financier records an investment at cost and recognises profit when it is determined. The business records capital held in trust with its profit share as income; any loss reduces the capital held.'}
+};
+const RISK_ROWS=[['asset','Asset ownership risk'],['perf','Commercial performance risk'],['loss','Loss of capital'],['pay','Payment certainty'],['control','Management and control'],['maint','Maintenance and insurance'],['default','Default and late payment']];
+const SCEN=[['base','Expected case'],['down','Downside case'],['stress','Stress case']];
+
+/* ------------- state ------------- */
+function blank(){return{meta:{client:'',preparedBy:'',role:'sme',currency:'USD'},
+ creed:{halal:false,noRiba:false,honest:false,clear:false,zakat:false},
+ profile:{sector:'',stage:'',years:'',revenue:'',margin:'',ocf:'',debt:'',reserves:'',collateral:'',mgmt:'',records:'',demand:'',repeat:'',need:''},
+ need:{amount:'',own:'',tenor:'',ret:'',purpose:'',assetId:'',investor:'',dilution:'',fixedPref:'',predict:'',riskApp:'',statement:''},
+ assump:{...DEF_ASSUMP},checked:{},selected:'',isSample:false,tab:'creed'};}
+function sample(){const s=blank();
+ s.meta={client:'Barakah Bakery Co. (sample)',preparedBy:'Sample consultant',role:'sme',currency:'USD'};
+ s.creed={halal:true,noRiba:true,honest:true,clear:true,zakat:false};
+ s.profile={sector:'Food & beverage',stage:'growth',years:'3.5',revenue:'480000',margin:'9',ocf:'7500',debt:'1200',reserves:'18000',collateral:'45000',mgmt:'9',records:'4',demand:'4',repeat:'62',need:'Fresh halal bread and pastries delivered daily to 40 cafés and about 300 households, with reliable early-morning supply.'};
+ s.need={amount:'120000',own:'20000',tenor:'48',ret:'18',purpose:'equipment',assetId:'yes',investor:'no',dilution:'2',fixedPref:'4',predict:'4',riskApp:'3',statement:'Buy a second industrial oven line and two refrigerated delivery vans to double daily capacity, add 6 local jobs and serve three new neighbourhoods.'};
+ s.isSample=true;return s;}
+let state=load();
+function load(){try{const r=localStorage.getItem(STORE);if(r){const o=JSON.parse(r);const b=blank();return{...b,...o,meta:{...b.meta,...o.meta},creed:{...b.creed,...o.creed},profile:{...b.profile,...o.profile},need:{...b.need,...o.need},assump:{...DEF_ASSUMP,...o.assump},checked:o.checked||{}};}}catch(e){}return blank();}
+function save(){try{localStorage.setItem(STORE,JSON.stringify(state));}catch(e){}}
+const getP=(p)=>p.split('.').reduce((o,k)=>o&&o[k],state);
+function setP(p,v){const k=p.split('.');let o=state;for(let i=0;i<k.length-1;i++)o=o[k[i]];o[k[k.length-1]]=v;}
+
+/* ------------- helpers ------------- */
+const $=(s,r=document)=>r.querySelector(s);
+const $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const N=(v)=>(v===''||v==null||isNaN(+v))?NaN:+v;
+const nz=(v,d=0)=>isNaN(v)?d:v;
+const CS={USD:'$',MYR:'RM ',SAR:'SAR ',AED:'AED ',EGP:'EGP ',GBP:'£',EUR:'€'};
+const money=(n)=>isFinite(n)?(n<0?'-':'')+(CS[state.meta.currency]||'')+Math.round(Math.abs(n)).toLocaleString('en-US'):'—';
+const moneyP=(n)=>isFinite(n)?(n<0?'-':'')+state.meta.currency+' '+Math.round(Math.abs(n)).toLocaleString('en-US'):'-';
+const pct=(n,d=1)=>isFinite(n)?(n*100).toFixed(d)+'%':'—';
+const esc=(s)=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(toast._t);toast._t=setTimeout(()=>t.classList.remove('show'),2600);}
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const PURPOSE={equipment:'Equipment / machinery',vehicles:'Vehicles / fleet',inventory:'Inventory / raw materials',property:'Premises / property',working:'Working capital',expansion:'Business expansion',project:'Specific project / contract',newventure:'New venture'};
+const STAGE={idea:'Idea / pre-revenue',startup:'Start-up',growth:'Growing',established:'Established'};
+const ROLE={sme:'SME owner',founder:'Founder / start-up',consultant:'Investment / business consultant',investor:'Capital provider / investor'};
+
+/* ------------- financial engine ------------- */
+function irrAnnual(flows){ // flows[0] > 0 receipt, rest negative; monthly bisection
+  if(!(flows[0]>0))return NaN;
+  const f=(m)=>flows.reduce((s,c,t)=>s+c/Math.pow(1+m,t),0);
+  let lo=0,hi=0.5;if(f(lo)>=0)return 0;if(f(hi)<0)return NaN;
+  for(let i=0;i<80;i++){const mid=(lo+hi)/2;if(f(mid)<0)lo=mid;else hi=mid;}
+  return Math.pow(1+(lo+hi)/2,12)-1;
+}
+function inputsOK(){const T=N(state.need.amount),mo=N(state.need.tenor);return T>0&&mo>=1;}
+function baseParams(){
+  const n=state.need,a=state.assump;
+  const T=N(n.amount),mo=Math.round(N(n.tenor));
+  const own=clamp(nz(N(n.own)),0,T*0.9);
+  const F=T-own;const yrs=mo/12;
+  const retAssumed=isNaN(N(n.ret));
+  const r=(retAssumed?12:N(n.ret))/100;
+  return{T,mo,own,F,yrs,r,retAssumed,a:{mRate:nz(N(a.mRate),8)/100,iRate:nz(N(a.iRate),8.5)/100,fee:nz(N(a.feePct),1)/100,tak:nz(N(a.takafulPct),0.5)/100,mud:nz(N(a.mudShare),35)/100,down:nz(N(a.downFactor),40)/100,stress:nz(N(a.stressRet),-10)/100}};
+}
+function runModel(key,ret,P){
+  const {F,mo,yrs,a}=P;const pay=[];let take=0;const fee=F*a.fee;
+  if(key==='murabaha'){
+    const mk=F*a.mRate*yrs;take=mk;for(let t=1;t<=mo;t++)pay.push((F+mk)/mo);
+  }else if(key==='ijarah'){
+    const m=a.iRate/12;const pmt=m===0?F/mo:F*m/(1-Math.pow(1+m,-mo));const tak=F*a.tak/12;
+    for(let t=1;t<=mo;t++)pay.push(pmt+tak);take=pmt*mo-F+tak*mo;
+  }else if(key==='musharakah'){
+    for(let t=1;t<=mo;t++){const out=F-(t-1)*F/mo;const share=out*ret/12;take+=share;pay.push(F/mo+Math.max(share,0));}
+  }else{ // mudarabah
+    const PF=F*ret*yrs;take=ret>=0?PF*a.mud:PF;
+    for(let t=1;t<=mo;t++)pay.push(ret>=0?take/mo:0);
+    pay[mo-1]+=Math.max(F+(ret<0?take:0),0);
+  }
+  const cost=take+fee;
+  const PF=F*ret*yrs;
+  const net=(key==='mudarabah'&&ret<0)?-fee:PF-cost; // mudarib bears no financial loss in Mudarabah
+  return{pay,take,fee,cost,PF,net,total:pay.reduce((s,x)=>s+x,0)};
+}
+function calc(){
+  if(!inputsOK()||!(baseParams().F>0))return null;
+  const P=baseParams();const out={P,models:{}};
+  const rets={base:P.r,down:P.r*P.a.down,stress:P.a.stress};
+  const ocf=N(state.profile.ocf),debt=nz(N(state.profile.debt));
+  MODEL_ORDER.forEach(k=>{
+    const sc={};SCEN.forEach(([s])=>sc[s]=runModel(k,rets[s],P));
+    const b=sc.base;const avg=b.total/P.mo;const peak=Math.max(...b.pay);
+    const flows=[P.F-b.fee,...b.pay.map(x=>-x)];
+    // for mudarabah/musharakah, effective cost uses actual flows
+    const eff=irrAnnual(flows);
+    const dscr=isNaN(ocf)?NaN:ocf/(debt+avg);
+    const fixed=(k==='murabaha'||k==='ijarah');
+    const hurdle=fixed?b.cost/(P.F*P.yrs):0;
+    out.models[k]={sc,avg,peak,eff,dscr,fixed,hurdle,cost:b.cost,total:b.total};
+  });
+  return out;
+}
+
+/* ------------- readiness ------------- */
+function readiness(){
+  const p=state.profile,n=state.need,c=state.creed;const cc=calc();
+  const comps=[];
+  const creedN=CREED_ITEMS.filter(([k])=>c[k]).length;
+  comps.push({key:'Creed screen',max:15,val:creedN/CREED_ITEMS.length*15+(c.halal?0:-8),fix:'Complete the Creed screen and resolve any unticked item, especially the halal-activity check.',known:creedN>0});
+  const rec=N(p.records);comps.push({key:'Financial records',max:15,val:isNaN(rec)?0:rec/5*15,fix:'Move to monthly accounts with a budget; funders and partners will ask for 12–24 months of statements.',known:!isNaN(rec)});
+  const yrs=N(p.years);comps.push({key:'Trading history',max:15,val:isNaN(yrs)?0:Math.min(yrs,5)/5*15,fix:'Document the track record you do have (orders, customers, repeat sales); consider a smaller first facility to build history.',known:!isNaN(yrs)});
+  let cov=NaN;if(cc)cov=cc.models.murabaha.dscr;
+  comps.push({key:'Cash-flow cover',max:20,val:isNaN(cov)?0:clamp((cov-0.8)/(1.5-0.8),0,1)*20,fix:'Cash flow after existing obligations should cover new payments about 1.3 times. Reduce the amount, lengthen the term or lift operating cash flow first.',known:!isNaN(cov)});
+  const T=N(n.amount),own=nz(N(n.own)),col=nz(N(p.collateral)),res=nz(N(p.reserves));
+  let sec=NaN;if(T>0){const F=T-own;sec=F>0?(col+res+own)/F:1;}
+  const ownShare=T>0?own/T:NaN;
+  const secScore=isNaN(sec)?0:Math.min(sec,1)*10+(isNaN(ownShare)?0:Math.min(ownShare/0.2,1)*5);
+  comps.push({key:'Security and equity',max:15,val:secScore,fix:'Build a skin-in-the-game contribution of about 20% and identify security or reserves that cover the financed amount.',known:!isNaN(sec)});
+  const dem=N(p.demand);const rp=N(p.repeat);
+  comps.push({key:'Customer demand',max:10,val:isNaN(dem)?0:dem/5*10,fix:'Strengthen proof of demand: pre-orders, signed supply agreements, a waiting list, or a pilot with paying customers.',known:!isNaN(dem)});
+  const mg=N(p.mgmt);comps.push({key:'Management experience',max:10,val:isNaN(mg)?0:Math.min(mg,10)/10*10,fix:'Add an experienced advisor, manager or partner, and write down who is accountable for what.',known:!isNaN(mg)});
+  let tot=comps.reduce((s,x)=>s+Math.max(x.val,0),0);tot=clamp(tot,0,100);
+  const known=comps.filter(x=>x.known).length/comps.length;
+  let tier,cls,msg;
+  if(tot>=75){tier='Funding-ready';cls='ok';msg='The fundamentals are strong. Move to term-sheet conversations and document preparation.';}
+  else if(tot>=55){tier='Nearly ready';cls='warn';msg='A few gaps to close. Address the weakest areas below before approaching funders.';}
+  else if(tot>=35){tier='Foundation building';cls='warn';msg='Funding is possible with smaller, asset-backed steps, but strengthen records, cash flow and security first.';}
+  else{tier='Pre-funding preparation';cls='bad';msg='Focus on the pathway steps in Commerce before taking on a financing commitment.';}
+  return{score:Math.round(tot),comps,known,tier,cls,msg,sec,cov};
+}
+
+/* ------------- fit engine ------------- */
+function fit(){
+  const cc=calc();const n=state.need,p=state.profile;
+  const purpose=n.purpose,stage=p.stage,rec=N(p.records),dil=N(n.dilution),fp=N(n.fixedPref),pr=N(n.predict),ra=N(n.riskApp),mg=N(p.mgmt),yrs=N(p.years);
+  const tang=['equipment','vehicles','inventory','property'].includes(purpose);
+  const asset=n.assetId==='yes';const inv=n.investor==='yes';
+  const early=stage==='idea'||stage==='startup';
+  const mature=stage==='growth'||stage==='established';
+  const growth=['expansion','project','newventure'].includes(purpose);
+  const cover=(k)=>cc?cc.models[k].dscr:NaN;
+  const colRatio=cc?(nz(N(p.collateral))/Math.max(cc.P.F,1)):NaN;
+  const R={};
+  const mk=(key,base,rules)=>{let s=base,mx=base;const pro=[],con=[];rules.forEach(([cond,d,txt])=>{if(d>0)mx+=d;if(cond){s+=d;(d>=0?pro:con).push(txt);}});R[key]={score:Math.round(clamp(s/mx,0.05,0.97)*100),pro,con};};
+  const dMur=cover('murabaha'),dIj=cover('ijarah');
+  mk('murabaha',30,[
+   [tang,25,'Use of funds is a clear asset or stock purchase'],
+   [asset,10,'There is an identifiable asset to buy'],
+   [purpose==='working',-12,'Pure working capital does not fit a sale of a specific asset'],
+   [fp>=4,10,'You prefer fixed, certain payments'],[fp<=2,-6,'You prefer payments that flex with profit'],
+   [dil<=2,8,'You keep full ownership and control'],
+   [dMur>=1.3,12,'Cash flow comfortably covers fixed instalments'],[dMur<1.1,-16,'Cash flow is thin for fixed instalments'],
+   [early,-10,'Early-stage history makes fixed payments riskier'],
+   [colRatio>=0.5,5,'Useful security available'],[pr>=4,5,'Profits are predictable enough for fixed payments']]);
+  mk('ijarah',28,[
+   [['equipment','vehicles','property'].includes(purpose),28,'Use of funds is a leasable asset'],
+   [purpose==='inventory',-18,'Consumable stock cannot be leased'],
+   [purpose==='working',-14,'Working capital is not a leasable asset'],
+   [asset,8,'An identifiable asset exists'],
+   [cc&&cc.P.own/cc.P.T<0.2,6,'Low upfront outlay: financier owns the asset'],
+   [fp>=4,8,'Fixed rentals give you certainty'],
+   [dil<=2,6,'You keep control of the business'],
+   [dIj>=1.3,12,'Cash flow comfortably covers rentals'],[dIj<1.1,-16,'Cash flow is thin for fixed rentals'],
+   [early,-8,'Limited history for a fixed lease commitment'],
+   [N(n.tenor)>=36,4,'Longer terms suit lease structures']]);
+  mk('musharakah',25,[
+   [growth,22,'Growth or project purpose suits a partnership'],
+   [purpose==='property',10,'Property works well as a diminishing partnership'],
+   [rec>=4,14,'Strong records support partner reporting'],[rec<=2,-20,'Weak records make a partnership difficult to monitor'],
+   [dil>=4,18,'You are open to sharing ownership and decisions'],[dil<=2,-20,'You want to keep full control'],
+   [mature,8,'Track record supports a partner\'s confidence'],[stage==='idea',-10,'Too early for a reporting-heavy partnership'],
+   [ra>=4,8,'Your risk appetite fits profit-and-loss sharing'],
+   [dMur<1.1,14,'Flexible payments ease thin cash flow'],
+   [pr<=2,8,'Variable profits are better shared than fixed'],
+   [inv,6,'A capital partner is already identified'],[yrs>=2,5,'Two or more years of trading history']]);
+  mk('mudarabah',22,[
+   [purpose==='newventure',20,'New venture where skill is the main asset'],
+   [purpose==='working',12,'Working capital fits a trading partnership'],[purpose==='project',8,'Short-cycle project suits a Mudarabah'],
+   [early,10,'Skills over collateral suit early-stage ventures'],
+   [rec>=4,10,'Strong records support transparent reporting'],[rec<=2,-22,'Weak records break the trust a Mudarabah requires'],
+   [mg>=5,10,'Deep management experience'],
+   [dil<=2,6,'Business keeps day-to-day control'],
+   [inv,16,'A capital provider is identified'],[n.investor==='no',-10,'No capital provider yet; one willing to bear loss is rare'],
+   [colRatio<0.2,4,'Low collateral is acceptable in this structure'],
+   [tang&&asset,-8,'A clear asset purchase is better served by Murabaha or Ijarah'],
+   [fp>=4,-8,'You need certain payments; Mudarabah returns are variable'],
+   [yrs<1,-10,'Little track record to support trust']]);
+  const order=MODEL_ORDER.slice().sort((a,b)=>R[b].score-R[a].score);
+  const req=[purpose,stage,n.assetId,n.dilution,n.fixedPref,n.investor,p.records,n.amount,n.tenor].filter(v=>v!==''&&v!=null).length/9;
+  const margin=R[order[0]].score-R[order[1]].score;
+  let conf='Exploratory';if(req>=0.85&&margin>=10)conf='High';else if(req>=0.65)conf='Moderate';
+  const hybrid=margin<7&&req>=0.65?[order[0],order[1]]:null;
+  return{R,order,top:order[0],conf,req,margin,hybrid};
+}
+</script>
+<script>
+/* ------------- commerce data (shared by screen + PDF) ------------- */
+function curModel(){return state.selected||fit().top;}
+function commerceData(){
+  const cc=calc(),rd=readiness(),ft=fit(),key=curModel(),M=MODELS[key],p=state.profile,n=state.need;
+  const rev=N(p.revenue);const kp=[];let cni=NaN;
+  const dem=N(p.demand),rep=N(p.repeat);
+  const parts=[];if(!isNaN(dem))parts.push(dem/5);if(!isNaN(rep))parts.push(clamp(rep/80,0,1));if((p.need||'').trim().length>15)parts.push(1);
+  if(parts.length)cni=parts.reduce((s,x)=>s+x,0)/parts.length;
+  if(cc){const m=cc.models[key];
+    const annual=m.avg*12;const burden=isNaN(rev)||rev<=0?NaN:annual/rev;
+    kp.push({k:'Average monthly outflow',v:money(m.avg),n:'Includes capital repayment / buy-out'});
+    kp.push({k:'Cash-flow cover (DSCR)',v:isNaN(m.dscr)?'—':m.dscr.toFixed(2)+'x',n:isNaN(m.dscr)?'Enter monthly operating cash flow':(m.dscr>=1.3?'Healthy: 1.3x or higher':m.dscr>=1.1?'Tight: aim for 1.3x':'Weak: below 1.1x')});
+    kp.push({k:'Payments as % of revenue',v:isNaN(burden)?'—':pct(burden),n:isNaN(burden)?'Enter annual revenue':(burden<=0.15?'Within a 15% guide':'Above a 15% guide')});
+    const rc=nz(N(p.reserves))/Math.max(m.avg,1);
+    kp.push({k:'Reserve cover',v:isNaN(N(p.reserves))?'—':rc.toFixed(1)+' months',n:'Cash reserves ÷ monthly outflow; aim for 3+'});
+    kp.push({k:'Return needed to break even',v:m.fixed?pct(m.hurdle):'None fixed',n:m.fixed?'Project must earn this on financed capital':'Payments flex with results'});
+    kp.push({k:'Effective annual cost',v:isNaN(m.eff)?'—':pct(m.eff),n:'Declining-balance equivalent, expected case'});
+  }
+  kp.push({k:'Customer-need alignment',v:isNaN(cni)?'—':Math.round(cni*100)+'%',n:'Demand evidence, repeat share, clarity of need'});
+  /* roadmap */
+  const h1=[],h2=[],h3=[];
+  rd.comps.slice().sort((a,b)=>a.val/a.max-b.val/b.max).filter(x=>x.val/x.max<0.65).slice(0,3).forEach(x=>h1.push(x.fix));
+  h1.push('Request written indicative quotes from at least two Shariah-supervised providers or partners.');
+  h1.push('Have a qualified Shariah scholar or board review the draft contract and the use of funds.');
+  const impl={
+   murabaha:['Select the supplier and obtain a formal quotation or proforma invoice.','Sign the promise to purchase; confirm the financier buys and owns the asset before the sale.','Confirm the final price, instalments, security and early-settlement terms in writing.'],
+   ijarah:['Select the asset and supplier; agree the maintenance split in writing.','Confirm the financier buys and owns the asset before the lease starts, with takaful in place.','Sign the lease and a separate end-of-term transfer undertaking.'],
+   musharakah:['Agree a valuation for any in-kind contribution and the profit-sharing ratio.','Open a dedicated venture account and set a monthly reporting routine for your partner.','Set the unit buy-out schedule and a clear exit and dispute process.'],
+   mudarabah:['Agree scope, profit percentage, permitted expenses and negligence definitions.','Prepare a monthly reporting pack and give the capital provider audit access.','Define when capital is returned and what happens at renewal or liquidation.']}[key];
+  impl.forEach(t=>h2.push(t));
+  h2.push('Turn your customer need into a measurable service promise (for example delivery on time, quality, response time) and track it monthly.');
+  if(cc&&state.profile.reserves!==''){const m=cc.models[key];h2.push('Hold a payment reserve of three months of outflow (about '+money(m.avg*3)+').');}else h2.push('Build a reserve equal to three months of financing outflow.');
+  h3.push('Re-run this navigator every year or whenever cash flow, scale or ownership changes.');
+  h3.push('Keep any single customer under about 25% of revenue and add a second revenue stream.');
+  h3.push('Calculate zakat on eligible business assets each year and route any late-payment charges to charity.');
+  h3.push(key==='musharakah'?'Review accelerated unit buy-outs when surplus cash allows.':key==='murabaha'?'Ask whether a goodwill rebate (ibra\') is available if you settle early.':key==='ijarah'?'Plan the end-of-term decision: return, renew or take ownership.':'Agree renewal or liquidation terms before term-end and settle profit shares promptly.');
+  const road=[{h:'Next 90 days: Clarity and preparation',t:h1},{h:'3–12 months: Execute the contract well',t:h2},{h:'12–36 months: Sustain and grow',t:h3}];
+  return{cc,rd,ft,key,M,kp,cni,road};
+}
+
+/* ------------- renderers ------------- */
+function renderCreed(){
+  $('#creedChecks').innerHTML=CREED_ITEMS.map(([k,t,d])=>`<label class="check ${state.creed[k]?'on':''}"><input type="checkbox" data-creed="${k}" ${state.creed[k]?'checked':''}><span><b>${esc(t)}</b><small>${esc(d)}</small></span></label>`).join('');
+  $$('[data-creed]').forEach(el=>el.addEventListener('change',()=>{state.creed[el.dataset.creed]=el.checked;persist();}));
+  const c=CREED_ITEMS.filter(([k])=>state.creed[k]).length;
+  let h=`<span class="pill ${c===5?'ok':c>=3?'warn':'bad'}">${c} of 5 confirmed</span> `;
+  h+=!state.creed.halal?'<span class="hint">The core activity must be confirmed halal before any financing is structured.</span>':c===5?'<span class="hint">Creed screen complete. Proceed with confidence.</span>':'<span class="hint">Close the remaining items before signing any contract.</span>';
+  $('#creedStatus').innerHTML=h;
+}
+function renderReadiness(){
+  const rd=readiness();
+  $('#readyCard').innerHTML=`<h3>Business status</h3><div class="gauge"><div class="ring" style="--p:${rd.score}"><div><span><b>${rd.score}</b><small>of 100</small></span></div></div>
+   <div style="flex:1;min-width:200px"><span class="pill ${rd.cls}">${rd.tier}</span><p style="margin:8px 0 6px">${esc(rd.msg)}</p><p class="hint">Picture completeness: ${Math.round(rd.known*100)}% of inputs known${rd.known<0.7?'. Add more details to sharpen the score.':'.'}</p></div></div>`;
+  const gaps=rd.comps.filter(x=>x.known&&x.val/x.max<0.6);
+  $('#readyDetail').innerHTML=`<h3>What the score is made of</h3>`+rd.comps.map(x=>`<div class="bar"><span>${x.key}</span><div class="track"><div class="fill" style="width:${clamp(x.val/x.max*100,0,100)}%"></div></div><span class="v">${Math.round(clamp(x.val,0,x.max))}/${x.max}</span></div>`).join('')+
+   (gaps.length?`<h4 style="margin-top:12px">Priority gaps</h4><ul class="clean">${gaps.map(g=>`<li>${esc(g.fix)}</li>`).join('')}</ul>`:'<p class="hint" style="margin-top:10px">No major gaps flagged from the details entered.</p>');
+}
+function costChart(cc){
+  const W=720,H=300,pl=70,pr=12,pt=16,pb=56;const col={murabaha:'#0f3d2e',ijarah:'#b8892b',musharakah:'#6b4423',mudarabah:'#4a7c8f'};
+  const vals=[];SCEN.forEach(([s])=>MODEL_ORDER.forEach(k=>vals.push(cc.models[k].sc[s].cost)));
+  let mx=Math.max(0,...vals),mn=Math.min(0,...vals);if(mx===mn)mx=1;const rng=mx-mn;mx+=rng*0.08;if(mn<0)mn-=rng*0.08;
+  const y=(v)=>pt+(mx-v)/(mx-mn)*(H-pt-pb);const gw=(W-pl-pr)/3;const bw=Math.min(36,(gw-24)/4);
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Total financing cost by structure and scenario" style="width:100%;height:auto">`;
+  for(let i=0;i<=4;i++){const v=mn+(mx-mn)*i/4;s+=`<line x1="${pl}" x2="${W-pr}" y1="${y(v)}" y2="${y(v)}" stroke="#e6dfcd"/><text x="${pl-8}" y="${y(v)+4}" font-size="11" text-anchor="end" fill="#5d6a63">${esc(money(v))}</text>`;}
+  s+=`<line x1="${pl}" x2="${W-pr}" y1="${y(0)}" y2="${y(0)}" stroke="#5d6a63"/>`;
+  SCEN.forEach(([sk,sl],gi)=>{const gx=pl+gi*gw+(gw-bw*4-9)/2;
+    MODEL_ORDER.forEach((k,i)=>{const v=cc.models[k].sc[sk].cost;const x=gx+i*(bw+3);const y0=y(0),y1=y(v);
+      s+=`<rect x="${x}" y="${Math.min(y0,y1)}" width="${bw}" height="${Math.max(Math.abs(y1-y0),1)}" rx="3" fill="${col[k]}"><title>${MODELS[k].name} · ${sl}: ${money(v)}</title></rect>`;
+      s+=`<text x="${x+bw/2}" y="${v>=0?y1-4:y1+12}" font-size="9" text-anchor="middle" fill="#1d2622">${esc(money(v))}</text>`;});
+    s+=`<text x="${pl+gi*gw+gw/2}" y="${H-30}" font-size="12" font-weight="600" text-anchor="middle" fill="#0f3d2e">${sl}</text>`;});
+  s+='</svg>';
+  s+=`<div class="legend">${MODEL_ORDER.map(k=>`<span><i style="background:${col[k]}"></i>${MODELS[k].name}</span>`).join('')}<span class="hint">Negative = the financier absorbs a loss</span></div>`;
+  return s;
+}
+function renderCompare(){
+  const cc=calc();let h='';
+  if(!cc){h=`<div class="empty"><b>Enter a project cost and term in Clarity</b> to see indicative costs side by side.<br><span class="hint">Qualitative risk-sharing below is always available.</span></div>`;}
+  else{const P=cc.P;
+    h+=`<div class="grid g4" style="margin-bottom:14px"><div class="kpi"><div class="k">Amount financed</div><div class="v">${money(P.F)}</div><div class="n">Cost ${money(P.T)} − own ${money(P.own)}</div></div><div class="kpi"><div class="k">Term</div><div class="v">${P.mo} mo</div><div class="n">${(P.yrs).toFixed(1)} years</div></div><div class="kpi"><div class="k">Project return assumed</div><div class="v">${(P.r*100).toFixed(1)}%</div><div class="n">${P.retAssumed?'Default assumption; enter yours in Clarity':'From your Clarity inputs'}</div></div><div class="kpi"><div class="k">Cash-flow base</div><div class="v">${isNaN(N(state.profile.ocf))?'—':money(N(state.profile.ocf))}</div><div class="n">Monthly, before financing</div></div></div>`;
+    h+=`<div class="tw"><table><thead><tr><th>Structure</th><th>Payment nature</th><th class="num">Avg monthly outflow</th><th class="num">Peak month</th><th class="num">Total cost (expected)</th><th class="num">Effective annual cost</th><th class="num">DSCR</th></tr></thead><tbody>`+
+     MODEL_ORDER.map(k=>{const m=cc.models[k];return `<tr><td><span class="mname">${MODELS[k].name}</span> <span class="ar">${MODELS[k].ar}</span><br><span class="hint">${MODELS[k].tag}</span></td><td>${m.fixed?'<span class="pill biz">Fixed</span>':'<span class="pill shared">Moves with results</span>'}</td><td class="num">${money(m.avg)}</td><td class="num">${money(m.peak)}</td><td class="num">${money(m.cost)}</td><td class="num">${isNaN(m.eff)?'—':pct(m.eff)}</td><td class="num">${isNaN(m.dscr)?'—':m.dscr.toFixed(2)+'x'}</td></tr>`;}).join('')+`</tbody></table></div>
+     <p class="hint" style="margin-top:6px">Total cost = financier's profit / rental / profit share plus fees. Effective annual cost converts every structure to a declining-balance rate so a flat Murabaha markup can be compared fairly with the others. Mudarabah's peak month includes the return of capital at maturity.</p>`;
+    h+=`<div class="card" style="margin-top:16px"><h3>What happens if results change?</h3><p class="hint">Cost to the business of financing under three outcomes. Fixed structures cost the same in every case. Partnership structures flex.</p>${costChart(cc)}
+     <div class="tw"><table><thead><tr><th>Business net result on the financed capital</th>${SCEN.map(([,l])=>`<th class="num">${l}</th>`).join('')}</tr></thead><tbody>${MODEL_ORDER.map(k=>`<tr><td class="mname">${MODELS[k].name}</td>${SCEN.map(([s])=>{const v=cc.models[k].sc[s].net;return `<td class="num" style="color:${v<0?'#9b2c2c':'#1d2622'}">${money(v)}</td>`;}).join('')}</tr>`).join('')}</tbody></table></div>
+     <p class="hint" style="margin-top:6px">Expected: ${(P.r*100).toFixed(1)}% p.a. return · Downside: ${(P.r*P.a.down*100).toFixed(1)}% · Stress: ${(P.a.stress*100).toFixed(1)}%. In Mudarabah the capital provider absorbs financial loss, so the business's downside is its lost effort.</p></div>`;
+  }
+  $('#costBlock').innerHTML=h;
+  $('#riskTable').innerHTML=`<thead><tr><th>Risk area</th>${MODEL_ORDER.map(k=>`<th>${MODELS[k].name}</th>`).join('')}</tr></thead><tbody>`+RISK_ROWS.map(([rk,rl])=>`<tr><td><b>${rl}</b></td>${MODEL_ORDER.map(k=>{const [w,t]=MODELS[k].risk[rk];return `<td><span class="pill ${w}">${w==='fin'?'Financier':w==='biz'?'Business':'Shared'}</span><br><span class="hint">${esc(t)}</span></td>`;}).join('')}</tr>`).join('')+'</tbody>';
+}
+function renderContract(){
+  const ft=fit(),cc=calc(),sel=curModel();
+  const top=MODELS[ft.top];
+  let h=`<div class="card tint"><div class="eyebrow">Best fit from your inputs</div><h3 style="font-size:1.6rem">${top.name} <span class="ar">${top.ar}</span> <span class="pill ${ft.conf==='High'?'ok':ft.conf==='Moderate'?'warn':'bad'}">Confidence: ${ft.conf}</span></h3><p>${esc(top.essence)}</p>
+   <p class="hint">${ft.conf==='Exploratory'?'Several inputs are still blank, so treat this as a starting direction. Complete the Clarity stage for a firmer recommendation.':'Why: '+esc(ft.R[ft.top].pro.slice(0,3).join('; ')||'balanced fit across your answers')+'.'}</p>
+   ${ft.hybrid?`<p><b>Consider a hybrid:</b> ${MODELS[ft.hybrid[0]].name} and ${MODELS[ft.hybrid[1]].name} score within a few points. Many businesses finance a tangible asset with one structure and working capital or growth with another.</p>`:''}</div>
+   <div class="grid g4" style="margin-top:14px">`+ft.order.map((k,i)=>{const r=ft.R[k];return `<div class="fitcard ${k===sel?'sel':''}" data-pick="${k}" tabindex="0" role="button" aria-pressed="${k===sel}"><span class="rank">#${i+1} fit</span><span class="mname">${MODELS[k].name} <span class="ar">${MODELS[k].ar}</span></span>
+   <div class="bar" style="grid-template-columns:1fr 36px;margin:2px 0"><div class="track"><div class="fill" style="width:${r.score}%"></div></div><span class="v">${r.score}</span></div>
+   <ul>${r.pro.slice(0,2).map(t=>`<li>${esc(t)}</li>`).join('')}${r.con.slice(0,1).map(t=>`<li style="color:#9b2c2c">${esc(t)}</li>`).join('')}</ul></div>`;}).join('')+'</div>';
+  $('#fitBlock').innerHTML=h;
+  $('#modelSeg').innerHTML=MODEL_ORDER.map(k=>`<button type="button" data-pick="${k}" aria-pressed="${k===sel}">${MODELS[k].name}</button>`).join('');
+  const M=MODELS[sel];const m=cc?cc.models[sel]:null;
+  const ul=(a)=>`<ul class="clean">${a.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`;
+  let o=`<div class="card"><h3 style="font-size:1.5rem">${M.name} <span class="ar">${M.ar}</span> <span class="pill biz">${M.tag}</span></h3><p>${esc(M.essence)}</p>
+   <div class="grid g2"><div><h4>Best suited to</h4>${ul(M.bestFor)}</div><div><h4>Think twice if</h4>${ul(M.notFor)}</div></div></div>`;
+  if(m){o+=`<div class="grid g4" style="margin-top:14px"><div class="kpi"><div class="k">Avg monthly outflow</div><div class="v">${money(m.avg)}</div></div><div class="kpi"><div class="k">Total cost (expected)</div><div class="v">${money(m.cost)}</div></div><div class="kpi"><div class="k">Effective annual cost</div><div class="v">${isNaN(m.eff)?'—':pct(m.eff)}</div></div><div class="kpi"><div class="k">Cash-flow cover</div><div class="v">${isNaN(m.dscr)?'—':m.dscr.toFixed(2)+'x'}</div></div></div>`;}
+  o+=`<div class="grid g2" style="margin-top:14px"><div class="card"><h3>How it operates, step by step</h3><ol class="flow">${M.steps.map(([a,b])=>`<li><b>${esc(a)}</b>${esc(b)}</li>`).join('')}</ol></div>
+   <div class="grid" style="align-content:start"><div class="card"><h3>Documents to prepare</h3>${ul(M.docs)}</div><div class="card"><h3>Shariah conditions to confirm</h3>${ul(M.conditions)}</div></div></div>
+   <div class="grid g3" style="margin-top:14px"><div class="card"><h3>Financier's obligations</h3>${ul(M.fin)}</div><div class="card"><h3>Business's obligations</h3>${ul(M.biz)}</div><div class="card gold"><h3>Red flags</h3>${ul(M.flags)}</div></div>
+   <div class="card" style="margin-top:14px"><h3>Accounting treatment</h3><p>${esc(M.accounting)}</p></div>`;
+  $('#opsBlock').innerHTML=o;
+  $$('[data-pick]').forEach(el=>{const f=()=>{state.selected=el.dataset.pick;persist();renderContract();renderCommerce();renderReport();};el.addEventListener('click',f);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();f();}});});
+}
+function renderCommerce(){
+  const d=commerceData();const M=d.M;
+  let h=`<p class="lead">Pathway shown for <b>${M.name}</b> (change the structure in Contract). A sustainable plan serves a real customer need, keeps payments comfortably covered and leaves room for zakat, reserves and growth.</p>`;
+  h+=`<div class="grid g3">`+d.kp.map(k=>`<div class="kpi"><div class="k">${esc(k.k)}</div><div class="v">${esc(k.v)}</div><div class="n">${esc(k.n)}</div></div>`).join('')+'</div>';
+  if(d.cc){h+=`<div class="card" style="margin-top:16px"><h3>Stress test for ${M.name}</h3><div class="tw"><table><thead><tr><th>Scenario</th><th class="num">Project return</th><th class="num">Financing cost</th><th class="num">Business net result</th></tr></thead><tbody>`+SCEN.map(([s,l],i)=>{const r=[d.cc.P.r,d.cc.P.r*d.cc.P.a.down,d.cc.P.a.stress][i];const x=d.cc.models[d.key].sc[s];return `<tr><td><b>${l}</b></td><td class="num">${(r*100).toFixed(1)}%</td><td class="num">${money(x.cost)}</td><td class="num" style="color:${x.net<0?'#9b2c2c':'#1d2622'}">${money(x.net)}</td></tr>`;}).join('')+`</tbody></table></div></div>`;}
+  h+=`<div class="grid g3" style="margin-top:16px">`+d.road.map((r,ri)=>`<div class="card road"><h3>${esc(r.h)}</h3>${r.t.map((t,i)=>{const id='r'+ri+'_'+i+'_'+t.length;return `<label class="task ${state.checked[id]?'done':''}"><input type="checkbox" data-task="${id}" ${state.checked[id]?'checked':''}><span>${esc(t)}</span></label>`;}).join('')}</div>`).join('')+'</div>';
+  $('#commerceBlock').innerHTML=h;
+  $$('[data-task]').forEach(el=>el.addEventListener('change',()=>{state.checked[el.dataset.task]=el.checked;el.closest('.task').classList.toggle('done',el.checked);persist();}));
+}
+const DISC='This tool provides indicative, educational estimates built from your inputs and editable planning assumptions. It is not a quote, a fatwa, Shariah, legal, tax or investment advice. Actual pricing, terms and permissibility depend on the provider, jurisdiction and contract. Have every contract reviewed by a qualified Shariah scholar or board and a licensed professional before signing.';
+function renderReport(){$('#briefName').textContent=MODELS[curModel()].name;$('#disc1').textContent=DISC;}
+
+/* ------------- master render & wiring ------------- */
+let rq=0;
+function persist(){save();cancelAnimationFrame(rq);rq=requestAnimationFrame(renderDerived);}
+function renderDerived(){renderCreed();renderReadiness();renderCompare();renderContract();renderCommerce();renderReport();$('#sampleBanner').classList.toggle('show',!!state.isSample);}
+function syncForm(){$$('[data-path]').forEach(el=>{const v=getP(el.dataset.path);el.value=v==null?'':v;});}
+function bindForm(){$$('[data-path]').forEach(el=>{const h=()=>{setP(el.dataset.path,el.value);if(state.isSample&&el.dataset.path.indexOf('assump')!==0&&el.dataset.path.indexOf('meta')!==0)state.isSample=true;persist();};el.addEventListener('input',h);el.addEventListener('change',h);});}
+function go(tab){state.tab=tab;$$('.panel').forEach(p=>p.classList.toggle('active',p.id==='p-'+tab));$$('.tab').forEach(t=>t.setAttribute('aria-selected',t.dataset.go===tab));save();window.scrollTo({top:0,behavior:'smooth'});}
+function doClear(){if(!confirm('Remove all sample or entered data and start with a blank form? This cannot be undone.'))return;const tab=state.tab;state=blank();state.tab=tab;save();syncForm();renderDerived();toast('Sample data removed. The form is blank.');}
+function doSample(){if(!state.isSample&&JSON.stringify({...state,tab:0,checked:0,assump:0})!==JSON.stringify({...blank(),tab:0,checked:0,assump:0})&&!confirm('Replace your current entries with the sample business?'))return;const tab=state.tab;state=sample();state.tab=tab;save();syncForm();renderDerived();toast('Sample data loaded. Remove it before using a real client.');}
+document.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g)go(g.dataset.go);});
+['#btnSample'].forEach(s=>$(s).addEventListener('click',doSample));
+['#btnClear','#btnClear2','#btnClear3'].forEach(s=>$(s).addEventListener('click',doClear));
+$('#btnPrint').addEventListener('click',()=>window.print());
+$('#btnPdf').addEventListener('click',()=>makePdf('full'));
+$('#pdfFull').addEventListener('click',()=>makePdf('full'));
+$('#pdfBrief').addEventListener('click',()=>makePdf('brief'));
+$('#pdfSnap').addEventListener('click',()=>makePdf('snap'));
+$('#btnResetAssump').addEventListener('click',()=>{state.assump={...DEF_ASSUMP};syncForm();persist();toast('Assumptions reset.');});
+$('#btnExport').addEventListener('click',()=>{const b=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='funding-navigator-inputs.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);});
+$('#importFile').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const o=JSON.parse(r.result);const b=blank();state={...b,...o,meta:{...b.meta,...o.meta},creed:{...b.creed,...o.creed},profile:{...b.profile,...o.profile},need:{...b.need,...o.need},assump:{...DEF_ASSUMP,...o.assump},checked:o.checked||{}};save();syncForm();renderDerived();toast('Inputs imported.');}catch(err){toast('That file could not be read.');}};r.readAsText(f);e.target.value='';});
+</script>
+<script>
+/* ------------- PDF engine (jsPDF, vendored) ------------- */
+function makePdf(kind){
+  if(!window.jspdf||!window.jspdf.jsPDF){toast('PDF library did not load. Use Print and choose "Save as PDF".');return;}
+  try{
+    const D=newDoc();
+    if(kind==='full')buildFull(D);else if(kind==='brief')buildBrief(D);else buildSnap(D);
+    const nm=(state.meta.client||'client').replace(/[^a-z0-9]+/gi,'-').replace(/^-|-$/g,'').toLowerCase()||'client';
+    const fn={full:'funding-findings-report',brief:'operations-brief-'+curModel(),snap:'client-snapshot'}[kind]+'-'+nm+'.pdf';
+    D.finish(fn);toast('PDF created: '+fn);
+  }catch(e){console.error(e);toast('Could not build the PDF: '+e.message);}
+}
+function newDoc(){
+  const d=new window.jspdf.jsPDF({unit:'pt',format:'a4'});
+  const W=595.28,H=841.89,M=46,CW=W-2*M;let y=0;
+  const C={green:[15,61,46],gold:[184,137,43],brown:[107,68,35],ink:[29,38,34],muted:[93,106,99],cream:[243,238,222],line:[217,210,195],red:[155,44,44]};
+  const clean=s=>String(s==null?'':s).replace(/[‘’]/g,"'").replace(/[“”]/g,'"').replace(/→/g,'>').replace(/≥/g,'>=').replace(/≈/g,'~').replace(/÷/g,'/').replace(/−/g,'-').replace(/[^\x20-\x7E -ÿ–—•…™]/g,'');
+  const fc=c=>d.setTextColor(c[0],c[1],c[2]);
+  const header=()=>{d.setFillColor(...C.green);d.rect(0,0,W,26,'F');d.setFillColor(...C.gold);d.rect(0,26,W,2.5,'F');d.setFont('helvetica','bold');d.setFontSize(8);d.setTextColor(255,255,255);d.text('Islamic Business Funding Navigator  |  Creed-to-Commerce™',M,17);d.setFont('helvetica','normal');d.text(clean(state.meta.client||'Client'),W-M,17,{align:'right'});};
+  const need=h=>{if(y+h>H-56){d.addPage();header();y=54;}};
+  const api={
+   d,get y(){return y;},set y(v){y=v;},
+   cover(title,sub){
+     d.setFillColor(...C.green);d.rect(0,0,W,210,'F');d.setFillColor(...C.gold);d.rect(0,210,W,5,'F');
+     d.setTextColor(...C.gold);d.setFont('times','bold');d.setFontSize(10);d.text('BISMILLAH AR-RAHMAN AR-RAHEEM',W/2,40,{align:'center'});
+     d.setTextColor(255,255,255);d.setFont('times','bold');d.setFontSize(27);d.text(clean(title),M,96,{maxWidth:CW});
+     d.setFont('helvetica','normal');d.setFontSize(12);d.setTextColor(243,230,196);d.text(clean(sub),M,150,{maxWidth:CW});
+     d.setFontSize(9);d.setTextColor(207,226,216);d.text('Creed-to-Commerce™  |  The Balanced Middle Path Academy, LLC',M,190);
+     y=244;
+     const rows=[['Business / client',state.meta.client||'(not entered)'],['Prepared by',state.meta.preparedBy||'(not entered)'],['User role',ROLE[state.meta.role]||''],['Date',new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'long',year:'numeric'})],['Currency',state.meta.currency]];
+     rows.forEach(([a,b])=>{d.setFont('helvetica','bold');d.setFontSize(9.5);fc(C.muted);d.text(a.toUpperCase(),M,y);d.setFont('helvetica','normal');d.setFontSize(11);fc(C.ink);d.text(clean(b),M+120,y);y+=20;});
+     y+=8;
+   },
+   firstHeader(){header();y=54;},
+   h(t,lvl){lvl=lvl||1;need(40);if(lvl===1){y+=8;d.setFont('times','bold');d.setFontSize(18);fc(C.green);d.text(clean(t),M,y);y+=6;d.setDrawColor(...C.gold);d.setLineWidth(1.4);d.line(M,y,M+56,y);y+=16;}else{d.setFont('times','bold');d.setFontSize(13);fc(C.brown);d.text(clean(t),M,y);y+=15;}},
+   p(t,o){o=o||{};const sz=o.size||10;d.setFont('helvetica',o.bold?'bold':'normal');d.setFontSize(sz);fc(o.color||C.ink);const x=M+(o.indent||0);const lines=d.splitTextToSize(clean(t),CW-(o.indent||0));lines.forEach(l=>{need(sz+5);d.text(l,x,y);y+=sz*1.4;});y+=o.gap==null?4:o.gap;},
+   bullets(a,o){o=o||{};a.forEach(t=>{const sz=o.size||9.5;d.setFont('helvetica','normal');d.setFontSize(sz);fc(C.ink);const lines=d.splitTextToSize(clean(t),CW-16);lines.forEach((l,i)=>{need(sz+5);if(i===0){d.setFillColor(...C.gold);d.circle(M+4,y-3,1.6,'F');}d.text(l,M+14,y);y+=sz*1.4;});y+=1.5;});y+=3;},
+   steps(a){a.forEach(([t,b],i)=>{d.setFont('helvetica','normal');d.setFontSize(9.5);const lines=d.splitTextToSize(clean(b),CW-34);need(18+lines.length*13);d.setFillColor(...C.green);d.circle(M+9,y-3,9,'F');d.setTextColor(255,255,255);d.setFont('helvetica','bold');d.setFontSize(9);d.text(String(i+1),M+9,y,{align:'center'});d.setFontSize(10);fc(C.green);d.text(clean(t),M+26,y);y+=13;d.setFont('helvetica','normal');d.setFontSize(9.5);fc(C.ink);lines.forEach(l=>{d.text(l,M+26,y);y+=13;});y+=4;});},
+   bar(label,v,max,txt){need(18);d.setFont('helvetica','normal');d.setFontSize(9);fc(C.ink);d.text(clean(label),M,y);const bx=M+130,bw=CW-190;d.setFillColor(...C.cream);d.roundedRect(bx,y-8,bw,9,4,4,'F');d.setFillColor(...C.gold);d.roundedRect(bx,y-8,Math.max(bw*clamp(v/max,0,1),2),9,4,4,'F');d.setFont('helvetica','bold');d.text(clean(txt),W-M,y,{align:'right'});y+=17;},
+   kpis(a){const n=a.length,gap=8,w=(CW-gap*(n-1))/n;need(52);a.forEach(([k,v],i)=>{const x=M+i*(w+gap);d.setFillColor(...C.cream);d.setDrawColor(...C.line);d.roundedRect(x,y-10,w,46,6,6,'FD');d.setFont('helvetica','bold');d.setFontSize(7.5);fc(C.muted);d.text(clean(k).toUpperCase(),x+8,y+1,{maxWidth:w-12});d.setFont('times','bold');d.setFontSize(14);fc(C.green);d.text(clean(v),x+8,y+24,{maxWidth:w-12});});y+=52;},
+   table(head,rows,widths,o){o=o||{};const tot=widths.reduce((s,x)=>s+x,0);const cw=widths.map(x=>x/tot*CW);const fs=o.size||8.5;const lh=fs*1.32;
+     const rowH=(r)=>{let mx=1;r.forEach((c,i)=>{d.setFontSize(fs);mx=Math.max(mx,d.splitTextToSize(clean(c),cw[i]-10).length);});return mx*lh+9;};
+     const drawHead=()=>{need(26);d.setFillColor(...C.green);d.rect(M,y-9,CW,20,'F');d.setFont('helvetica','bold');d.setFontSize(fs);d.setTextColor(255,255,255);let x=M;head.forEach((c,i)=>{if(o.right&&o.right.includes(i))d.text(clean(c),x+cw[i]-5,y+4,{align:'right'});else d.text(clean(c),x+5,y+4,{maxWidth:cw[i]-8});x+=cw[i];});y+=20;};
+     drawHead();rows.forEach((r,ri)=>{const h=rowH(r);if(y-9+h>H-56){d.addPage();header();y=54;drawHead();}
+       if(ri%2===0){d.setFillColor(250,247,238);d.rect(M,y-9,CW,h,'F');}
+       let x=M;r.forEach((c,i)=>{d.setFont('helvetica',i===0?'bold':'normal');d.setFontSize(fs);fc(i===0?C.green:C.ink);const ls=d.splitTextToSize(clean(c),cw[i]-10);ls.forEach((l,li)=>{if(o.right&&o.right.includes(i))d.text(l,x+cw[i]-5,y+li*lh+2,{align:'right'});else d.text(l,x+5,y+li*lh+2);});x+=cw[i];});
+       d.setDrawColor(...C.line);d.setLineWidth(.4);d.line(M,y-9+h,M+CW,y-9+h);y+=h;});y+=8;},
+   gap(n){y+=n;},
+   finish(fn){const n=d.getNumberOfPages();for(let i=1;i<=n;i++){d.setPage(i);
+       if(state.isSample){d.saveGraphicsState();d.setGState(new d.GState({opacity:0.07}));d.setFont('helvetica','bold');d.setFontSize(84);d.setTextColor(...C.green);d.text('SAMPLE DATA',W/2,H/2+40,{align:'center',angle:45});d.restoreGraphicsState();}
+       d.setDrawColor(...C.gold);d.setLineWidth(.8);d.line(M,H-40,W-M,H-40);d.setFont('helvetica','normal');d.setFontSize(7.5);fc(C.muted);
+       d.text('Creed-to-Commerce™  |  BMPA, LLC  |  Indicative and educational; not Shariah, legal or investment advice',M,H-28,{maxWidth:CW-60});d.text('Page '+i+' of '+n,W-M,H-28,{align:'right'});}
+     d.save(fn);}
+  };
+  return api;
+}
+function pdfDisc(D){D.h('Assumptions and important notice',2);D.p(DISC,{size:8.5,color:[93,106,99]});const a=state.assump;D.p('Planning assumptions used: Murabaha markup '+a.mRate+'% p.a. flat; Ijarah rental '+a.iRate+'% p.a. declining; arrangement fee '+a.feePct+'%; takaful '+a.takafulPct+'% p.a.; Mudarabah capital-provider profit share '+a.mudShare+'%; downside case profit at '+a.downFactor+'% of expected; stress-case return '+a.stressRet+'% p.a.',{size:8.5,color:[93,106,99]});}
+function sampleNote(D){if(state.isSample)D.p('SAMPLE DATA: figures in this document are illustrative for a fictional business and must not be relied on.',{bold:true,color:[155,44,44],size:9.5});}
+
+function buildFull(D){
+  const cc=calc(),rd=readiness(),ft=fit(),top=MODELS[ft.top],cd=commerceData();
+  D.cover('Funding Findings Report','Islamic financing pathways: Murabaha, Ijarah, Musharakah and Mudarabah compared');
+  sampleNote(D);
+  D.h('Executive summary');
+  D.kpis([['Readiness',rd.score+'/100'],['Status',rd.tier],['Best fit',top.name],['Confidence',ft.conf]]);
+  const n=state.need;
+  D.p('Request: '+(cc?moneyP(cc.P.T)+' total project cost, of which '+moneyP(cc.P.own)+' is the business\'s own contribution and '+moneyP(cc.P.F)+' is to be financed over '+cc.P.mo+' months.':'Funding details have not yet been entered.')+(n.purpose?' Main use of funds: '+PURPOSE[n.purpose]+'.':''));
+  D.p('On the information provided, the structure with the strongest fit is '+top.name+' ('+top.tag+'). '+(ft.R[ft.top].pro.length?'Reasons: '+ft.R[ft.top].pro.slice(0,3).join('; ')+'.':'')+(ft.hybrid?' The runner-up, '+MODELS[ft.order[1]].name+', scores within a few points, so a hybrid is worth considering.':''));
+  if(state.need.statement)D.p('Purpose statement: '+state.need.statement,{color:[107,68,35]});
+  D.h('1. Creed: intention and ethical screen');
+  D.bullets(CREED_ITEMS.map(([k,t])=>(state.creed[k]?'[Confirmed] ':'[Open] ')+t));
+  D.h('2. Clarity: where the business stands');
+  const p=state.profile;
+  D.table(['Item','Value','Item','Value'],[
+    ['Sector',p.sector||'-','Stage',STAGE[p.stage]||'-'],
+    ['Years trading',p.years||'-','Annual revenue',p.revenue!==''?moneyP(N(p.revenue)):'-'],
+    ['Net margin',p.margin!==''?p.margin+'%':'-','Monthly operating cash flow',p.ocf!==''?moneyP(N(p.ocf)):'-'],
+    ['Existing monthly debt',p.debt!==''?moneyP(N(p.debt)):'-','Cash reserves',p.reserves!==''?moneyP(N(p.reserves)):'-'],
+    ['Collateral available',p.collateral!==''?moneyP(N(p.collateral)):'-','Management experience',p.mgmt!==''?p.mgmt+' years':'-']],[1.2,1.2,1.5,1.2]);
+  D.p('Readiness score: '+rd.score+' of 100 ('+rd.tier+'). '+rd.msg,{bold:true});
+  rd.comps.forEach(c=>D.bar(c.key,Math.max(c.val,0),c.max,Math.round(clamp(c.val,0,c.max))+'/'+c.max));
+  const gaps=rd.comps.filter(x=>x.known&&x.val/x.max<0.6);
+  if(gaps.length){D.h('Priority gaps',2);D.bullets(gaps.map(g=>g.fix));}
+  D.h('3. Compare: indicative cost and risk-sharing');
+  if(cc){
+    D.table(['Structure','Payment nature','Avg monthly','Peak month','Total cost','Effective rate','DSCR'],MODEL_ORDER.map(k=>{const m=cc.models[k];return [MODELS[k].name,m.fixed?'Fixed':'Moves with results',moneyP(m.avg),moneyP(m.peak),moneyP(m.cost),isNaN(m.eff)?'-':pct(m.eff),isNaN(m.dscr)?'-':m.dscr.toFixed(2)+'x'];}),[1.2,1.3,1.2,1.2,1.2,1,.8],{right:[2,3,4,5,6]});
+    D.p('Total cost is the financier\'s profit, rental or profit share plus fees. Effective rate converts each structure to a declining-balance equivalent for fair comparison.',{size:8.5,color:[93,106,99]});
+    D.h('Business net result on the financed capital',2);
+    D.table(['Structure','Expected','Downside','Stress'],MODEL_ORDER.map(k=>[MODELS[k].name,...SCEN.map(([s])=>moneyP(cc.models[k].sc[s].net))]),[1.4,1,1,1],{right:[1,2,3]});
+    D.p('Expected return '+(cc.P.r*100).toFixed(1)+'% p.a.; downside '+(cc.P.r*cc.P.a.down*100).toFixed(1)+'%; stress '+(cc.P.a.stress*100).toFixed(1)+'%. Fixed structures charge the same in every case; partnership structures share the outcome.',{size:8.5,color:[93,106,99]});
+  }else D.p('Enter a project cost and term to see cost comparisons.');
+  D.h('Who carries which risk',2);
+  D.table(['Risk area',...MODEL_ORDER.map(k=>MODELS[k].name)],RISK_ROWS.map(([rk,rl])=>[rl,...MODEL_ORDER.map(k=>{const [w,t]=MODELS[k].risk[rk];return (w==='fin'?'FINANCIER: ':w==='biz'?'BUSINESS: ':'SHARED: ')+t;})]),[1.1,1.5,1.5,1.5,1.5],{size:7.5});
+  D.h('4. Contract: fit ranking and operating model');
+  D.table(['Rank','Structure','Fit score','Strengths for your case','Cautions'],ft.order.map((k,i)=>[String(i+1),MODELS[k].name,String(ft.R[k].score),ft.R[k].pro.slice(0,3).join('; ')||'-',ft.R[k].con.slice(0,2).join('; ')||'-']),[.5,1.1,.7,2.6,2],{size:8});
+  D.h('Recommended structure: '+top.name+' - how it operates',2);
+  D.steps(top.steps);
+  D.h('Documents to prepare',2);D.bullets(top.docs);
+  D.h('Shariah conditions to confirm',2);D.bullets(top.conditions);
+  D.h('5. Commerce: sustainability pathway');
+  D.p('Pathway based on '+cd.M.name+'. Key indicators:',{bold:true});
+  D.table(['Indicator','Result','Guide'],cd.kp.map(k=>[k.k,k.v,k.n]),[1.6,1,2.4]);
+  cd.road.forEach(r=>{D.h(r.h,2);D.bullets(r.t);});
+  pdfDisc(D);
+}
+function buildBrief(D){
+  const key=curModel(),M=MODELS[key],cc=calc();
+  D.cover(M.name+' - Operations Brief',M.tag+'  |  '+M.family);
+  sampleNote(D);
+  D.h('What it is');D.p(M.essence);
+  D.h('Best suited to',2);D.bullets(M.bestFor);D.h('Think twice if',2);D.bullets(M.notFor);
+  if(cc){const m=cc.models[key];D.h('Indicative numbers for this case',2);D.kpis([['Amount financed',moneyP(cc.P.F)],['Avg monthly',moneyP(m.avg)],['Total cost',moneyP(m.cost)],['Effective rate',isNaN(m.eff)?'-':pct(m.eff)]]);}
+  D.h('How it operates, step by step');D.steps(M.steps);
+  D.h('Risk allocation',2);D.table(['Risk area','Who carries it','Detail'],RISK_ROWS.map(([rk,rl])=>{const [w,t]=M.risk[rk];return [rl,w==='fin'?'Financier':w==='biz'?'Business':'Shared',t];}),[1.4,.9,2.8]);
+  D.h('Obligations',2);D.p('Financier',{bold:true,gap:1});D.bullets(M.fin);D.p('Business',{bold:true,gap:1});D.bullets(M.biz);
+  D.h('Documents checklist',2);D.bullets(M.docs.map(x=>'[  ] '+x));
+  D.h('Shariah conditions to confirm',2);D.bullets(M.conditions.map(x=>'[  ] '+x));
+  D.h('Red flags',2);D.bullets(M.flags);
+  D.h('Accounting treatment',2);D.p(M.accounting);
+  pdfDisc(D);
+}
+function buildSnap(D){
+  const cc=calc(),rd=readiness(),ft=fit(),top=MODELS[ft.top],cd=commerceData();
+  D.cover('Client Snapshot','One-page funding summary for clients, boards and capital partners');
+  sampleNote(D);
+  D.kpis([['Readiness',rd.score+'/100'],['Status',rd.tier],['Recommended',top.name],['Confidence',ft.conf]]);
+  D.p('The ask: '+(cc?moneyP(cc.P.F)+' financed over '+cc.P.mo+' months (project cost '+moneyP(cc.P.T)+', own contribution '+moneyP(cc.P.own)+').':'Not yet specified.')+(state.need.purpose?' Use of funds: '+PURPOSE[state.need.purpose]+'.':''));
+  if(state.profile.need)D.p('Customer need served: '+state.profile.need);
+  if(cc){const m=cc.models[ft.top];D.p('Indicative '+top.name+' economics: average monthly outflow '+moneyP(m.avg)+'; total cost '+moneyP(m.cost)+'; effective annual cost '+(isNaN(m.eff)?'-':pct(m.eff))+'; cash-flow cover '+(isNaN(m.dscr)?'-':m.dscr.toFixed(2)+'x')+'.');}
+  D.h('Why this structure',2);D.bullets(ft.R[ft.top].pro.slice(0,3).length?ft.R[ft.top].pro.slice(0,3):['Complete the Clarity stage for specific reasons.']);
+  D.h('First three actions',2);D.bullets(cd.road[0].t.slice(0,3));
+  pdfDisc(D);
+}
+
+/* ------------- init ------------- */
+function init(){
+  syncForm();bindForm();renderDerived();
+  $$('.tab').forEach(t=>t.addEventListener('click',()=>go(t.dataset.go)));
+  go(state.tab&&$('#p-'+state.tab)?state.tab:'creed');
+}
+init();
+</script>
+</body>
+</html>
